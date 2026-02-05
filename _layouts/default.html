@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>0xK4z@Portfolio:~$ {{ page.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -23,6 +23,6 @@
       {% include soc-dashboard.html %}
       {% include footer.html %}
     </div>
-    <script src="{{ '/assets/js/script.js' }}"></script>
+    <script src="{{ '/assets/js/script.js | relative_url' }}"></script>
   </body>
 </html>

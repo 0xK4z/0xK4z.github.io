@@ -80,5 +80,5 @@ permalink: /
     </div>
 </section>
 
-<script src="{{ '/assets/js/typewriter.js' }}"></script>
-<script src="{{ '/assets/js/updateLogDate.js' }}"></script>
+<script src="{{ '/assets/js/typewriter.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/updateLogDate.js' | relative_url }}"></script>
