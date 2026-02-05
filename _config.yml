@@ -1,0 +1,7 @@
+title: "Cyber Portfolio"
+baseurl: "" # Deixe vazio se for seunome.github.io, ou "/nome-do-repo" se for um subdiretório
+url: "https://0xk4z.github.io"
+markdown: kramdown
+theme: minima # Apenas para evitar erros, mas usaremos CSS própriob
+sass:
+  quiet_deps: true

@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <span class="prompt">root@cyber:~{% if page.title == 'home' %}{% else %}/{{ page.title }}{% endif %}$</span>
+  <ul>
+    <li>
+      <a
+        href="{{ '/' | relative_url }}"
+        class="{% if page.url == '/' %}active{% endif %}"
+        >./home</a
+      >
+    </li>
+    <li>
+      <a
+        href="{{ '/about/' | relative_url }}"
+        class="{% if page.url contains 'about' %}active{% endif %}"
+        >./about</a
+      >
+    </li>
+    <li>
+      <a
+        href="{{ '/skills/' | relative_url }}"
+        class="{% if page.url contains 'skills' %}active{% endif %}"
+        >./skills</a
+      >
+    </li>
+    <li>
+      <a
+        href="{{ '/writeups/' | relative_url }}"
+        class="{% if page.url contains 'writeups' %}active{% endif %}"
+        >./writeups</a
+      >
+    </li>
+  </ul>
+</nav>

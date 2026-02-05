@@ -1,0 +1,776 @@
+/* Variáveis de Cores - Mude aqui para personalizar */
+:root {
+  --bg-color: #0b0c10;
+  --terminal-bg: #1f2833;
+  --text-color: #c5c6c7;
+  --accent-color: #66fcf1; /* Ciano Neon */
+  --secondary-accent: #45a29e;
+  --cmd-color: #e94560; /* Vermelho para comandos */
+  --font-stack: "Fira Code", "Courier New", monospace;
+
+  /* Variáveis de Status para SOC */
+  --status-warn: #ffcc00; /* Alerta/Atenção */
+  --status-info: #00ff00; /* Sucesso/Info */
+  --status-error: #ff5f56; /* Crítico */
+  --status-idle: #1f2833;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-stack);
+  line-height: 1.6;
+  padding: 20px;
+}
+/* Matrix effects */
+
+#matrixCanvas {
+    position: fixed; /* Fixa o canvas na viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Manda para o fundo, atrás de todo o conteúdo */
+    pointer-events: none; /* Impede que o canvas capture cliques */
+    opacity: 0.2; /* Torna o efeito mais sutil para não distrair */
+}
+
+/* Animação de Glitch sutil */
+.glitch-effect {
+  animation: glitch-skew 30s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-skew {
+  /* O glitch ocorre apenas em 2% do tempo total (aprox. 0.6s a cada 30s) */
+  0%,
+  94%,
+  100% {
+    transform: skew(0deg);
+    filter: blur(0);
+  }
+  95% {
+    transform: skew(3deg);
+    filter: blur(1px) contrast(1.2);
+  }
+  96% {
+    transform: skew(-2deg);
+    opacity: 0.8;
+  }
+  97% {
+    transform: skew(0deg);
+  }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03; /* Muito sutil */
+  z-index: 10000;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+/* Container Principal */
+.terminal-window {
+  max-width: 90vw;
+  margin: 0 auto;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--secondary-accent);
+  box-shadow: 0 0 10px rgba(102, 252, 241, 0.1);
+}
+
+.page-content {
+  flex-grow: 1; /* Isso faz esse bloco "esticar" e empurrar o resto para baixo */
+}
+
+/* about */
+.cv-download-section {
+  margin-top: 50px;
+  padding-bottom: 30px;
+}
+
+.cv-grid {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.cv-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  border: 1px solid var(--secondary-accent);
+  background: rgba(102, 252, 241, 0.05);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  min-width: 250px;
+}
+
+.cv-button:hover {
+  background: rgba(102, 252, 241, 0.15);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 252, 241, 0.1);
+}
+
+.cv-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.cv-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-filename {
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.cv-lang {
+  font-size: 0.7rem;
+  color: var(--secondary-accent);
+  margin-top: 4px;
+}
+
+/* Navegação */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  border-bottom: 1px dashed var(--secondary-accent);
+  padding-bottom: 10px;
+}
+
+.prompt {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar a.active {
+  color: var(--accent-color);
+  text-decoration: underline;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(102, 252, 241, 0.5);
+}
+
+.navbar a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Tipografia e Títulos */
+h1 {
+  color: var(--accent-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: var(--text-color);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.cmd {
+  color: var(--cmd-color);
+  margin-right: 10px;
+}
+
+.subtitle {
+  color: var(--secondary-accent);
+  font-size: 0.9rem;
+}
+
+.separator {
+  border: 0;
+  border-top: 1px dashed var(--secondary-accent);
+  margin: 40px 0;
+  opacity: 0.5;
+}
+
+/* Seção Skills */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-card {
+  border: 1px solid var(--secondary-accent);
+  padding: 5px 10px;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  cursor: default;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.skill-card:hover {
+  background: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.achievements-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.achievement-card {
+  border: 1px solid rgba(102, 252, 241, 0.2);
+  background: rgba(31, 40, 51, 0.2);
+  padding: 20px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.achievement-card:hover {
+  border-color: var(--accent-color);
+}
+
+.achievement-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(102, 252, 241, 0.1);
+  padding-bottom: 10px;
+}
+
+.achievement-title {
+  color: var(--accent-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.achievement-rank {
+  color: #ffcc00; /* Cor dourada para o Rank */
+  font-size: 0.8rem;
+  text-shadow: 0 0 5px rgba(255, 204, 0, 0.3);
+}
+
+.achievement-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Estilo para o Badge do THM */
+.thm-badge {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.achievement-stats {
+  flex: 1;
+  min-width: 200px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.achievement-stats p {
+  margin-bottom: 8px;
+  font-family: "Fira Code", monospace;
+}
+
+.education-container {
+  padding-left: 10px;
+  border-left: 1px dashed var(--secondary-accent);
+  margin-bottom: 40px;
+}
+
+.education-item {
+  margin-bottom: 25px;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.edu-title {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.edu-date {
+  color: var(--secondary-accent);
+  font-size: 0.8rem;
+}
+
+.edu-institution {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.edu-details {
+  list-style: none;
+  color: #888;
+  font-size: 0.85rem;
+  padding-left: 5px;
+}
+
+/* Seção Writeups */
+.writeup-entry {
+  margin-bottom: 25px;
+  padding-left: 15px;
+  border-left: 2px solid var(--secondary-accent);
+}
+
+.writeup-entry .date {
+  display: block;
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.writeup-link {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.writeup-link:hover {
+  text-shadow: 0 0 5px var(--accent-color);
+}
+
+.summary {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.tags {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+/* post WriteUps */
+.post-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.entry {
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+footer a {
+  color: var(--secondary-accent);
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+/* Cursor piscante para efeito de digitação */
+.typing-effect::after {
+  content: "_";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 20px;
+  }
+}
+
+/* Status Dashboard */
+
+.status-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 15px;
+  background: rgba(31, 40, 51, 0.3); /* Fundo semi-transparente */
+  border-left: 4px solid var(--accent-color);
+  font-family: "Fira Code", monospace;
+}
+
+.status-item {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+  border: 1px solid rgba(102, 252, 241, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Alinha o status à direita */
+  transition: all 0.3s ease;
+}
+
+.status-item:hover {
+  border-color: var(--accent-color);
+  background: rgba(102, 252, 241, 0.05);
+}
+
+/* Efeito de Pulso no Dot */
+.dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+}
+
+.dot-online {
+  background-color: #00ff00;
+  box-shadow: 0 0 8px #00ff00;
+  animation: pulse-green 2s infinite;
+}
+
+.dot-busy {
+  background-color: #ffcc00;
+  box-shadow: 0 0 8px #ffcc00;
+  animation: pulse-yellow 1s infinite alternate;
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(0, 255, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+  }
+}
+
+@keyframes pulse-yellow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 204, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* --- Estilização da Scrollbar --- */
+
+/* Firefox (Suporta apenas largura e cores básicas) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-accent) var(--bg-color);
+}
+
+/* Chrome, Edge, Safari e Brave */
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra vertical */
+  height: 8px; /* Altura da barra horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 1px solid rgba(102, 252, 241, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-accent);
+  border-radius: 0px; /* Barras quadradas combinam mais com terminal */
+  box-shadow: inset 0 0 5px rgba(102, 252, 241, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Esconde os botões de seta para um visual mais clean */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Para navegadores modernos (Chrome, Edge, Safari, Opera) */
+::selection {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-color) !important;
+}
+
+/* Para Firefox */
+::-moz-selection {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-color) !important;
+}
+
+/* Garante que elementos específicos não herdem estilos errados */
+*::selection {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-color) !important;
+}
+
+.terminal-code {
+  display: block;
+  background: var(--bg-color);
+  padding: 15px;
+  border: 1px solid var(--terminal-bg);
+  font-family: "Fira Code", monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+.log-timestamp {
+  color: var(--accent-color); /* Ciano do seu tema */
+  margin-right: 10px;
+}
+
+.log-warn {
+  color: var(--status-warn); /* Amarelo alerta */
+  font-weight: bold;
+}
+
+.log-info {
+  color: var(--status-info); /* Verde sucesso */
+  font-weight: bold;
+}
+
+.log-line {
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.log-line:hover {
+  background: rgba(102, 252, 241, 0.1); /* Efeito de seleção de linha do SIEM */
+  cursor: crosshair; /* Cursor de "mira", muito comum em ferramentas de análise */
+}
+
+.cursor-blink {
+  color: var(--accent-color);
+  font-weight: bold;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.system-health-widget {
+  background: rgba(31, 40, 51, 0.2);
+  border: 1px solid var(--secondary-accent);
+  padding: 15px;
+  font-family: "Fira Code", monospace;
+  max-width: 400px;
+  margin: 20px 0;
+}
+
+.health-item {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-bar {
+  display: flex;
+  flex: 1;
+  background: var(--status-idle);
+  padding: 2px 5px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  white-space: nowrap;
+  overflow: hidden;
+  transition: width 1s ease-in-out;
+}
+
+.bar-fill.critical {
+  color: var(--status-error);
+}
+.bar-fill.medium {
+  color: var(--status-warn);
+}
+.bar-value {
+  margin-left: auto;
+  font-size: 0.8rem;
+}
+
+.latency-value.low {
+  color: var(--status-info);
+  text-shadow: 0 0 5px var(--status-info);
+}
+
+/* Triage */
+.triage-section {
+  margin: 30px 0;
+}
+
+.triage-card {
+  display: flex;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--status-idle);
+  margin-bottom: 15px;
+  padding: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.triage-card:hover {
+  border-color: var(--accent-color);
+}
+
+.triage-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  border-right: 1px solid var(--status-idle);
+  padding-right: 15px;
+}
+
+.severity-box {
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* Cores dinâmicas por severidade */
+.triage-card.critical .severity-box {
+  background: var(--status-error);
+  color: #000;
+}
+.triage-card.medium .severity-box {
+  background: var(--status-warn);
+  color: #000;
+}
+.triage-card.low .severity-box {
+  background: var(--status-info);
+  color: #000;
+}
+
+.ticket-id {
+  font-size: 0.7rem;
+  color: var(--secondary-accent);
+  margin-top: 5px;
+}
+
+.task-title {
+  display: block;
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.task-desc {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.glitch {
+  position: relative;
+}
+
+/* Criamos uma "sombra" que será o glitch */
+.glitch::before {
+  content: attr(data-text); /* Pega o texto do HTML */
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 0 var(--status-info); /* Cor de destaque */
+  clip-path: inset(45% 0 44% 0); /* Fatia fina do texto */
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip-path: inset(10% 0 85% 0); }
+  20% { clip-path: inset(80% 0 10% 0); }
+  /* ... outros cortes rápidos ... */
+  100% { clip-path: inset(40% 0 43% 0); }
+}
