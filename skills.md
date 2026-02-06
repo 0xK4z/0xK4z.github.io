@@ -31,7 +31,7 @@ permalink: /skills/
   <div class="skill-card">[ Typescript ]</div>
   <div class="skill-card">[ Python ]</div>
   <div class="skill-card">[ Shell Script ]</div>
-    <div class="skill-card">[ Assembly ]</div>
+  <div class="skill-card">[ Assembly ]</div>
 </div>
 </section>
 
@@ -52,7 +52,7 @@ permalink: /skills/
                 
 <div class="achievement-stats">
                     <p><span class="cmd ">></span> Learning Paths: SOC Level 1, Cyber Security 101</p>
-                    <p><span class="cmd ">></span> Current Streak: 70 Days</p>
+                    <p><span class="cmd ">></span> Current Streak: 75 Days</p>
                 </div>
             </div>
         </div>
