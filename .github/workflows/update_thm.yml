@@ -1,8 +1,8 @@
 name: Update THM Stats
 on:
   schedule:
-    - cron: '0 */6 * * *' # Roda a cada 6 horas
-  workflow_dispatch:      # Permite rodar manualmente pelo painel do GitHub
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 jobs:
   update-stats:
@@ -12,14 +12,11 @@ jobs:
 
       - name: Fetch THM Data
         run: |
-          # Baixa o JSON da API
           curl -s "https://tryhackme.com/api/v2/public-profile?username=0xK4z" > thm_full.json
-          
-          # Usa o comando 'jq' para extrair os campos e salvar no thm.yml
-          # Se o seu runner não tiver jq, ele é instalado por padrão no ubuntu-latest
-          echo "streak: $(jq -r '.streak // 0' thm_full.json)" > _data/thm.yml
-          echo "rank: $(jq -r '.rank // 0' thm_full.json)" >> _data/thm.yml
-          echo "top_percentage: $(jq -r '.topPercentage // 0' thm_full.json)" >> _data/thm.yml
+
+          echo "streak: $(jq -r '.data.streak // 0' thm_full.json)" > _data/thm.yml
+          echo "rank: $(jq -r '.data.rank // 0' thm_full.json)" >> _data/thm.yml
+          echo "topPercentage: $(jq -r '.data.topPercentage // 0' thm_full.json)" >> _data/thm.yml
           
       - name: Commit and Push
         run: |
