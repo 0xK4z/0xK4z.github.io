@@ -97,6 +97,40 @@ body::after {
 }
 
 /* about */
+
+.about-container {
+    display: flex;
+    align-items: flex-start; /* Alinha os itens pelo topo */
+    gap: 30px;               /* Espaçamento entre a foto e o texto */
+    margin-top: 20px;
+}
+
+.about-image {
+    width: 200px;            /* Ajuste o tamanho conforme preferir */
+    height: 200px;
+    object-fit: cover;       /* Garante que a foto não fique esticada */
+    border-radius: 4px;      /* Combina com o estilo dos cards */
+    border: 1px solid rgba(102, 252, 241, 0.2);
+}
+
+.about-text {
+    flex: 1;                 /* Faz o texto ocupar o restante do espaço */
+}
+
+/* Responsividade: para telas de celular, a foto fica em cima e o texto embaixo */
+@media (max-width: 600px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .about-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
 .cv-download-section {
   margin-top: 50px;
   padding-bottom: 30px;
