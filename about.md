@@ -9,7 +9,7 @@ permalink: /about/
         <div class="about-container">
             <div class="profile-column">
                 <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=animal-cat-adorable-20787.jpg&fm=jpg" alt="Profile Picture" class="about-image"/>
-                <p>Victor <span class="image-caption">"0xK4z"</span> Guimarães</p>
+                <p style="color: gray;"><b>Victor <span class="image-caption">"0xK4z"</span> Guimarães</b></p>
         </div>
             <div class="about-text">
                 <p><strong>[IDENTITY]:</strong> Your Name</p>
@@ -32,7 +32,7 @@ permalink: /about/
 </section>
 
 <section class="cv-download-section">
-    <h2><span class="cmd ">></span> wget ./curriculum_vitae/</h2>
+    <h2><span class="cmd ">></span> wget ./curriculum_vitae</h2>
     <p class="subtitle glitch">// Select the resume version to download.</p>
     
 <div class="cv-grid">
