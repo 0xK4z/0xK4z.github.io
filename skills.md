@@ -43,7 +43,7 @@ permalink: /skills/
         <div class="achievement-card">
             <div class="achievement-header">
                 <span class="achievement-title">TRYHACKME_PROFILE</span>
-                <span class="achievement-rank">RANK: [ TOP_8% ]</span> </div>
+                <span class="achievement-rank">RANK: [ TOP_{{ site.data.thm.topPorcentage }}% ]</span> </div>
             
 <div class="achievement-body">
             <iframe 
@@ -55,7 +55,8 @@ permalink: /skills/
                 
 <div class="achievement-stats">
                     <p><span class="cmd ">></span> Learning Paths: SOC Level 1, Cyber Security 101</p>
-                    <p><span class="cmd ">></span> Current Streak: 75 Days</p>
+                    <p><span class="cmd ">></span> Current Streak: {{ site.data.thm.streak }} Days</p>
+                    <p><span class="cmd ">></span> Current Rank: {{ site.data.thm.rank }}</p>
                 </div>
             </div>
         </div>
