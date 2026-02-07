@@ -297,9 +297,19 @@ h2 {
   border-radius: 5px;
 }
 
+.thm-badge-iframe {
+    width: 300px;  /* Largura padrão do badge */
+    height: 100px; /* Altura padrão do badge */
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    /* Mantém a responsividade em telas muito pequenas */
+    max-width: 100%; 
+}
+
 .achievement-stats {
   flex: 1;
-  min-width: 200px;
+  min-width: 250px;
   font-size: 0.85rem;
   color: var(--text-color);
 }

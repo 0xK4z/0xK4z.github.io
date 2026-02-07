@@ -46,9 +46,12 @@ permalink: /skills/
                 <span class="achievement-rank">RANK: [ TOP_8% ]</span> </div>
             
 <div class="achievement-body">
-                <a href="https://tryhackme.com/p/0xK4z" target="_blank">
-                    <img src="https://tryhackme-badges.s3.amazonaws.com/0xK4z.png" alt="TryHackMe Badge" class="thm-badge">
-                </a>
+            <iframe 
+                src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4944404" 
+                class="thm-badge-iframe"
+                scrolling="no"
+                frameborder="0">
+            </iframe>
                 
 <div class="achievement-stats">
                     <p><span class="cmd ">></span> Learning Paths: SOC Level 1, Cyber Security 101</p>
