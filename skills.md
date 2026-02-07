@@ -43,7 +43,7 @@ permalink: /skills/
         <div class="achievement-card">
             <div class="achievement-header">
                 <span class="achievement-title">TRYHACKME_PROFILE</span>
-                <span class="achievement-rank">RANK: [ TOP_{{ site.data.thm.topPorcentage }}% ]</span> </div>
+                <span class="achievement-rank">RANK: [ TOP_{{ site.data.thm.topPercentage }}% ]</span> </div>
             
 <div class="achievement-body">
             <iframe 
