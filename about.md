@@ -7,7 +7,10 @@ permalink: /about/
 <section>
         <h2><span class="cmd">></span> cat about.txt</h2>
         <div class="about-container">
-            <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=animal-cat-adorable-20787.jpg&fm=jpg" alt="Profile Picture" class="about-image"/>
+            <div class="profile-column">
+                <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=animal-cat-adorable-20787.jpg&fm=jpg" alt="Profile Picture" class="about-image"/>
+                <p>Victor <span class="image-caption">"0xK4z"</span> Guimarães</p>
+        </div>
             <div class="about-text">
                 <p><strong>[IDENTITY]:</strong> Your Name</p>
                 <p><strong>[LOCATION]:</strong> Brazil</p>

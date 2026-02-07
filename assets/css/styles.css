@@ -105,6 +105,20 @@ body::after {
     margin-top: 20px;
 }
 
+.profile-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.image-caption {
+    font-family: "Fira Code", monospace;
+    font-size: 0.8rem;
+    color: yellow;
+    opacity: 0.9;
+}
+
 .about-image {
     width: 200px;            /* Ajuste o tamanho conforme preferir */
     height: 200px;
