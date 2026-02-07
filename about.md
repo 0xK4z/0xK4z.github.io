@@ -27,7 +27,7 @@ permalink: /about/
 
 <section class="cv-download-section">
     <h2><span class="cmd ">></span> wget ./curriculum_vitae/</h2>
-    <p class="subtitle">// Select the resume version to download.</p>
+    <p class="subtitle glitch">// Select the resume version to download.</p>
     
 <div class="cv-grid">
         <a href="{{ '/assets/pdf/cv_pt_br.pdf' | relative_url }}" download class="cv-button">
