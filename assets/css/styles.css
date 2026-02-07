@@ -116,7 +116,6 @@ body::after {
     font-family: "Fira Code", monospace;
     font-size: 0.8rem;
     color: yellow;
-    opacity: 0.9;
 }
 
 .about-image {
@@ -126,6 +125,13 @@ body::after {
     border-radius: 4px;      /* Combina com o estilo dos cards */
     border: 1px solid rgba(102, 252, 241, 0.2);
 }
+
+.about-image:hover {
+    filter: none; /* Remove o filtro ao passar o mouse */
+    box-shadow: 0 0 15px rgba(102, 252, 241, 0.5); /* Adiciona um glow */
+    cursor: crosshair; /* Cursor de terminal */
+}
+
 
 .about-text {
     flex: 1;                 /* Faz o texto ocupar o restante do espaço */
