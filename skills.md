@@ -37,7 +37,7 @@ permalink: /skills/
 
 <section>
     <h2><span class="cmd ">></span>./Achievements</h2>
-    <p class="subtitle">// Operações em plataformas de treinamento</p>
+    <p class="subtitle glitch">// Operações em plataformas de treinamento</p>
 
 <div class="achievements-container">
         <div class="achievement-card">
