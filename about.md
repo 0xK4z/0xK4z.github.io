@@ -8,6 +8,7 @@ permalink: /about/
         <h2><span class="cmd">></span> cat about.txt</h2>
         <div class="about-container">
             <div class="profile-column">
+                {% comment %} temporary placeholder {% endcomment %}
                 <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=animal-cat-adorable-20787.jpg&fm=jpg" alt="Profile Picture" class="about-image"/>
                 <p style="color: gray;"><b>Victor "<span class="image-caption">0xK4z</span>" Guimarães</b></p>
         </div>
