@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article class="post-content">
+    <header class="post-header">
+        <h2><span class="cmd">></span> cat {{ page.title }}.log</h2>
+    </header>
+
+    <hr class="separator">
+
+    <div class="entry">
+        {{ content }}
+    </div>
+
+    <footer>
+        <a href="{{ '/articles/' | relative_url }}" class="writeup-link"><- Return</a>
+    </footer>
+</article>
