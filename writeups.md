@@ -6,7 +6,7 @@ permalink: /writeups/
 
 <section>
     <h2><span class="cmd">></span> ./list_writeups.sh --all</h2>
-    <p class="subtitle glitch">Mostrando registros de incidentes arquivados...</p>
+    <p class="subtitle glitch">// Mostrando registros de incidentes arquivados...</p>
     <br>
     <div class="writeups-list" id="content-list">
         {% for writeup in site.writeups %}
