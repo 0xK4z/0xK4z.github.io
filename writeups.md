@@ -23,7 +23,7 @@ permalink: /writeups/
                 {% endfor %}
             </div>
             {% endif %}
-            </div>
+        </div>
         {% endfor %}
     </div>
 </section>
