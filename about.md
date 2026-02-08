@@ -9,7 +9,7 @@ permalink: /about/
         <div class="about-container">
             <div class="profile-column">
                 <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=animal-cat-adorable-20787.jpg&fm=jpg" alt="Profile Picture" class="about-image"/>
-                <p style="color: gray;"><b>Victor <span class="image-caption">"0xK4z"</span> Guimarães</b></p>
+                <p style="color: gray;"><b>Victor "<span class="image-caption">0xK4z</span>" Guimarães</b></p>
         </div>
             <div class="about-text">
                 <span>
@@ -17,12 +17,12 @@ permalink: /about/
                     <p><strong>[LOCATION]:</strong> <Strong>Brazil</Strong></p>
                 </span>
                 <p>
-                    In an ecosystem defined by entropy and noise, I focus on the signal. I am a Cybersecurity Analyst and with a developer background dedicated to the art of defense. 
-                    While the breaker’s mindset is valuable, my loyalty lies with the builders and the protectors.
+                    In an ecosystem defined by entropy and noise, I focus on the signal. I am a Cybersecurity Analyst with a developer background dedicated to the art of defense. 
+                    While the breaker's mindset is valuable, my loyalty lies with the builders and the protectors.
                 </p>
                 <p>
                     My background spans the full spectrum of system reliability—from the rapid-response trenches of a SOC to the architectural logic of software development and support. 
-                    I don’t just patch vulnerabilities; I seek to understand the systemic flaws that allow them to exist.
+                    I don't just patch vulnerabilities; I seek to understand the systemic flaws that allow them to exist.
                 </p>
                 <p>
                     I am a proponent of the Cypherpunk ethos: privacy is a right, and code is the medium to secure it. 

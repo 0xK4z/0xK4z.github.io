@@ -162,7 +162,7 @@ body::after {
 .about-list li::before {
     content: ">";
     position: absolute;
-    left: 0;
+    left: 1px;
     color: var(--accent-color); /* O verde/ciano do seu tema */
     font-weight: bold;
 }
@@ -184,6 +184,8 @@ body::after {
 /* Efeito de destaque no hover */
 .about-list li:not(.list-header):hover {
     color: #fff;
+    padding-left: 23px; /* Compensando a borda */
+    border-left: 2px solid var(--accent-color);
     transition: color 0.2s ease;
 }
 
