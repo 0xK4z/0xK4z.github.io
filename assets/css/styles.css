@@ -907,6 +907,73 @@ footer a {
   margin: 0;
 }
 
+/* 404 page */
+.error-page {
+    margin-top: 50px;
+    font-family: 'Fira Code', monospace;
+}
+
+.kernel-panic {
+    background: var(--status-error);
+    color: #000; /* Texto preto sobre fundo vermelho para impacto */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 95, 86, 0.4);
+}
+
+.panic-header {
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+}
+
+.panic-line {
+    font-size: 0.85rem;
+    margin: 2px 0;
+}
+
+.panic-trace {
+    font-size: 0.8rem;
+    padding-left: 20px;
+    opacity: 0.8;
+}
+
+.ssh-termination {
+    border-left: 2px solid var(--status-error);
+    padding-left: 20px;
+}
+
+.not-found-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  border: 1px solid var(--secondary-accent);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.action-options {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.action-options .not-found-link {
+    width: fit-content;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* Reutilizando o hover das tags que já criamos */
+.action-options .not-found-link:hover {
+    background: rgba(102, 252, 241, 0.1);
+}
+
 .glitch {
   position: relative;
 }
