@@ -1,0 +1,19 @@
+{% if paginator.total_pages > 1 %}
+<div class="pagination-nav">
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}" class="tag-badge"
+    >< PREV</a
+  >
+  {% endif %}
+
+  <span class="page-number"
+    >PAGE [{{ paginator.page }} / {{ paginator.total_pages }}]</span
+  >
+
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}" class="tag-badge"
+    >NEXT ></a
+  >
+  {% endif %}
+</div>
+{% endif %}

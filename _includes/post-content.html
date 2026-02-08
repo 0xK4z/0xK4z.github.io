@@ -1,0 +1,22 @@
+<div class="writeups-list" id="content-list">
+  {% for post in paginator.posts %}
+  <div
+    class="writeup-entry"
+    data-title="{{ post.title | lowercase }}"
+    data-tags="{{ post.tags | join: ' ' | lowercase }}"
+  >
+    <span class="date">[{{ post.date | date: "%Y-%m-%d" }}]</span>
+    <a href="{{ post.url | relative_url }}" class="writeup-link">
+      {{ post.title }}
+    </a>
+    <p class="summary">{{ post.summary | truncate: 120 }}</p>
+    {% if post.tags %}
+    <div class="post-tags">
+      {% for tag in post.tags %}
+      <p class="summary tag-badge">{{ tag }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
