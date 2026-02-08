@@ -9,7 +9,7 @@ permalink: /writeups/
     <p class="subtitle glitch">Mostrando registros de incidentes arquivados...</p>
     <br>
     <div class="writeups-list" id="content-list">
-        {% for writeup in site.posts %}
+        {% for writeup in site.writeups %}
         <div class="writeup-entry" data-title="{{ writeup.title | lowercase }}" data-tags="{{ writeup.tags | join: ' ' | lowercase }}">
             <span class="date">[{{ writeup.date | date: "%Y-%m-%d" }}]</span>
             <a href="{{ writeup.url | relative_url }}" class="writeup-link">
