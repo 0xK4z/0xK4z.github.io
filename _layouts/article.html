@@ -1,18 +1,29 @@
 ---
 layout: default
 ---
+
 <article class="post-content">
-    <header class="post-header">
-        <h2><span class="cmd">></span> cat {{ page.title }}.log</h2>
-    </header>
-
-    <hr class="separator">
-
-    <div class="entry">
-        {{ content }}
+  <header class="post-header">
+    <h2><span class="cmd">></span> cat {{ page.title }}.log</h2>
+    <span class="subtitle"
+      >Article Date: {{ page.date | date: "%d/%m/%Y" }}</span
+    >
+    |
+    <span class="subtitle">Categories:</span>
+    <div class="post-tags" style="display: inline-flex; margin-left: 5px">
+      {% for tag in page.tags %}
+      <span class="tag-badge">{{ tag }}</span>
+      {% endfor %}
     </div>
+  </header>
 
-    <footer>
-        <a href="{{ '/articles/' | relative_url }}" class="writeup-link"><- Return</a>
-    </footer>
+  <hr class="separator" />
+
+  <div class="entry">{{ content }}</div>
+
+  <footer>
+    <a href="{{ '/articles/' | relative_url }}" class="writeup-link"
+      ><- Return</a
+    >
+  </footer>
 </article>
