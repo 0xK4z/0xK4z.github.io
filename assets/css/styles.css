@@ -31,14 +31,14 @@ body {
 /* Matrix effects */
 
 #matrixCanvas {
-    position: fixed; /* Fixa o canvas na viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Manda para o fundo, atrás de todo o conteúdo */
-    pointer-events: none; /* Impede que o canvas capture cliques */
-    opacity: 0.2; /* Torna o efeito mais sutil para não distrair */
+  position: fixed; /* Fixa o canvas na viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Manda para o fundo, atrás de todo o conteúdo */
+  pointer-events: none; /* Impede que o canvas capture cliques */
+  opacity: 0.2; /* Torna o efeito mais sutil para não distrair */
 }
 
 /* Animação de Glitch sutil */
@@ -99,10 +99,10 @@ body::after {
 /* about */
 
 .about-container {
-    display: flex;
-    align-items: flex-start; /* Alinha os itens pelo topo */
-    gap: 30px;               /* Espaçamento entre a foto e o texto */
-    margin-top: 20px;
+  display: flex;
+  align-items: flex-start; /* Alinha os itens pelo topo */
+  gap: 30px; /* Espaçamento entre a foto e o texto */
+  margin-top: 20px;
 }
 
 .profile-column {
@@ -113,94 +113,93 @@ body::after {
 }
 
 .image-caption {
-    font-family: "Fira Code", monospace;
-    font-size: 0.8rem;
-    color: yellow;
+  font-family: "Fira Code", monospace;
+  font-size: 0.8rem;
+  color: yellow;
 }
 
 .about-image {
-    width: 200px;            /* Ajuste o tamanho conforme preferir */
-    height: 200px;
-    object-fit: cover;       /* Garante que a foto não fique esticada */
-    border-radius: 4px;      /* Combina com o estilo dos cards */
-    border: 1px solid rgba(102, 252, 241, 0.2);
+  width: 200px; /* Ajuste o tamanho conforme preferir */
+  height: 200px;
+  object-fit: cover; /* Garante que a foto não fique esticada */
+  border-radius: 4px; /* Combina com o estilo dos cards */
+  border: 1px solid rgba(102, 252, 241, 0.2);
 }
 
 .about-image:hover {
-    filter: none; /* Remove o filtro ao passar o mouse */
-    box-shadow: 0 0 15px rgba(102, 252, 241, 0.5); /* Adiciona um glow */
-    cursor: crosshair; /* Cursor de terminal */
+  filter: none; /* Remove o filtro ao passar o mouse */
+  box-shadow: 0 0 15px rgba(102, 252, 241, 0.5); /* Adiciona um glow */
+  cursor: crosshair; /* Cursor de terminal */
 }
 
-
 .about-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
 }
 
 .about-list {
-    list-style: none;         /* Remove as bolinhas padrão */
-    padding-left: 0;          /* Remove o recuo padrão */
-    margin: 20px 0;
-    font-family: "Fira Code", monospace;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: var(--text-color);
+  list-style: none; /* Remove as bolinhas padrão */
+  padding-left: 0; /* Remove o recuo padrão */
+  margin: 20px 0;
+  font-family: "Fira Code", monospace;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-color);
 }
 
 .about-list li {
-    position: relative;
-    padding-left: 25px;       /* Espaço para o marcador customizado */
-    margin-bottom: 12px;
-    font-size: 1.1rem;
+  position: relative;
+  padding-left: 25px; /* Espaço para o marcador customizado */
+  margin-bottom: 12px;
+  font-size: 1.1rem;
 }
 
 /* Criando o marcador ">" customizado */
 .about-list li::before {
-    content: ">";
-    position: absolute;
-    left: 1px;
-    color: var(--accent-color); /* O verde/ciano do seu tema */
-    font-weight: bold;
+  content: ">";
+  position: absolute;
+  left: 1px;
+  color: var(--accent-color); /* O verde/ciano do seu tema */
+  font-weight: bold;
 }
 
 /* Estilo especial para o título da lista (Core Kernels) */
 .about-list li.list-header {
-    padding-left: 0;
-    color: var(--accent-color);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+  padding-left: 0;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
 }
 
 /* Remove o marcador ">" apenas do título */
 .about-list li.list-header::before {
-    content: "";
+  content: "";
 }
 
 /* Efeito de destaque no hover */
 .about-list li:not(.list-header):hover {
-    color: #fff;
-    padding-left: 25px; /* Compensando a borda */
-    border-left: 2px solid var(--accent-color);
-    transition: color 0.2s ease;
+  color: #fff;
+  padding-left: 25px; /* Compensando a borda */
+  border-left: 2px solid var(--accent-color);
+  transition: color 0.2s ease;
 }
 
 /* Responsividade: para telas de celular, a foto fica em cima e o texto embaixo */
 @media (max-width: 600px) {
-    .about-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .about-image {
-        width: 150px;
-        height: 150px;
-    }
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .cv-download-section {
@@ -404,13 +403,13 @@ h2 {
 }
 
 .thm-badge-iframe {
-    width: 300px;  /* Largura padrão do badge */
-    height: 100px; /* Altura padrão do badge */
-    border: none;
-    border-radius: 5px;
-    background: transparent;
-    /* Mantém a responsividade em telas muito pequenas */
-    max-width: 100%; 
+  width: 300px; /* Largura padrão do badge */
+  height: 100px; /* Altura padrão do badge */
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  /* Mantém a responsividade em telas muito pequenas */
+  max-width: 100%;
 }
 
 .achievement-stats {
@@ -468,40 +467,70 @@ h2 {
 }
 
 /* Seção Writeups */
+.writeups-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .writeup-entry {
-  margin-bottom: 25px;
-  padding-left: 15px;
+  padding: 15px;
+  background: transparent;
+  border-left: 2px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   border-left: 2px solid var(--secondary-accent);
 }
 
+.writeup-entry:hover {
+  border-left-color: var(--accent-color);
+  background: rgba(102, 252, 241, 0.03);
+  transform: translateX(5px);
+}
+
 .writeup-entry .date {
-  display: block;
-  color: #888;
+  font-family: "Fira Code", monospace;
   font-size: 0.8rem;
+  color: var(--secondary-accent);
+  display: block;
   margin-bottom: 5px;
 }
 
 .writeup-link {
-  color: var(--accent-color);
-  font-size: 1.1rem;
-  text-decoration: none;
+  font-size: 1.2rem;
   font-weight: bold;
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 8px;
 }
 
 .writeup-link:hover {
-  text-shadow: 0 0 5px var(--accent-color);
+  text-shadow: 0 0 8px var(--accent-color);
 }
 
 .summary {
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-top: 5px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.8;
 }
 
-.tags {
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-top: 5px;
+.post-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.tag-badge {
+    font-size: 0.7rem;
+    color: var(--secondary-accent);
+    border: 1px solid var(--secondary-accent);
+    padding: 2px 6px;
+    text-transform: uppercase;
+    font-family: 'Fira Code', monospace;
 }
 
 /* post WriteUps */
@@ -885,8 +914,14 @@ footer a {
 }
 
 @keyframes glitch-anim {
-  0% { clip-path: inset(10% 0 85% 0); }
-  20% { clip-path: inset(80% 0 10% 0); }
+  0% {
+    clip-path: inset(10% 0 85% 0);
+  }
+  20% {
+    clip-path: inset(80% 0 10% 0);
+  }
   /* ... outros cortes rápidos ... */
-  100% { clip-path: inset(40% 0 43% 0); }
+  100% {
+    clip-path: inset(40% 0 43% 0);
+  }
 }
