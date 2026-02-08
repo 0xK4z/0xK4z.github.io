@@ -554,6 +554,28 @@ h2 {
   flex: 1;
 }
 
+/* Navigation pages */
+.pagination-nav {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Fira Code', monospace;
+}
+
+.page-number {
+    color: var(--secondary-accent);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* O .tag-badge já tem o estilo que criamos, ele funcionará bem aqui */
+.pagination-nav .tag-badge {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* Footer */
 footer {
   text-align: center;

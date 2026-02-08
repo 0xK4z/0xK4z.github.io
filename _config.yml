@@ -12,3 +12,15 @@ collections:
   articles:
     output: true
     permalink: /articles/:title/
+plugins:
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: "/page/:num/"
+  title: " - Page :num"
+  # Configuração para Writeups
+  collection: 'writeups' 
+  extension: 'html'
+  index_limit: 0
