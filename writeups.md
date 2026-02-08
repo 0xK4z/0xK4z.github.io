@@ -16,8 +16,14 @@ permalink: /writeups/
                 {{ writeup.title }}
             </a>
             <p class="summary">{{ writeup.summary | truncate: 120 }}</p>
-            <p class="summary">Tags: {{ writeup.tags | lowercase }}</p>
-        </div>
+            {% if writeup.tags %}
+            <div class="post-tags">
+                {% for tag in writeup.tags %}
+                    <p class="summary tag-badge">{{ tag }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            </div>
         {% endfor %}
     </div>
 </section>
