@@ -5,3 +5,10 @@ markdown: kramdown
 theme: minima # Apenas para evitar erros, mas usaremos CSS própriob
 sass:
   quiet_deps: true
+collections:
+  writeups:
+    output: true
+    permalink: /writeups/:title/
+  articles:
+    output: true
+    permalink: /articles/:title/
