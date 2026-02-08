@@ -21,6 +21,6 @@ pagination:
   permalink: "/page/:num/"
   title: " - Page :num"
   # Configuração para Writeups
-  collection: 'writeups' 
+  collection: ['writeups', 'articles']
   extension: 'html'
   index_limit: 0
