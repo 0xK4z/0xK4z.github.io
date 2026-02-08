@@ -8,10 +8,10 @@ sass:
 collections:
   writeups:
     output: true
-    permalink: /writeups/:title/
+    permalink: /writeups/:slug/
   articles:
     output: true
-    permalink: /articles/:title/
+    permalink: /articles/:slug/
 plugins:
   - jekyll-paginate-v2
 
