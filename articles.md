@@ -16,7 +16,13 @@ permalink: /articles/
                 {{ article.title }}
             </a>
             <p class="summary">{{ article.summary | truncate: 120 }}</p>
-            <p class="summary">Tags: {{ article.tags | lowercase }}</p>
+            {% if article.tags %}
+            <div class="post-tags">
+                {% for tag in article.tags %}
+                    <p class="summary tag-badge">{{ tag }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
         {% endfor %}
     </div>
