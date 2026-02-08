@@ -134,7 +134,57 @@ body::after {
 
 
 .about-text {
-    flex: 1;                 /* Faz o texto ocupar o restante do espaço */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.about-list {
+    list-style: none;         /* Remove as bolinhas padrão */
+    padding-left: 0;          /* Remove o recuo padrão */
+    margin: 20px 0;
+    font-family: "Fira Code", monospace;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.about-list li {
+    position: relative;
+    padding-left: 25px;       /* Espaço para o marcador customizado */
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+/* Criando o marcador ">" customizado */
+.about-list li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color); /* O verde/ciano do seu tema */
+    font-weight: bold;
+}
+
+/* Estilo especial para o título da lista (Core Kernels) */
+.about-list li.list-header {
+    padding-left: 0;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+/* Remove o marcador ">" apenas do título */
+.about-list li.list-header::before {
+    content: "";
+}
+
+/* Efeito de destaque no hover */
+.about-list li:not(.list-header):hover {
+    color: #fff;
+    transition: color 0.2s ease;
 }
 
 /* Responsividade: para telas de celular, a foto fica em cima e o texto embaixo */

@@ -12,20 +12,36 @@ permalink: /about/
                 <p style="color: gray;"><b>Victor <span class="image-caption">"0xK4z"</span> Guimarães</b></p>
         </div>
             <div class="about-text">
-                <p><strong>[IDENTITY]:</strong> Your Name</p>
-                <p><strong>[LOCATION]:</strong> Brazil</p>
-                <br />
+                <span>
+                    <p><strong>[IDENTITY]:</strong> <Strong>Victor Guimarães</Strong></p>
+                    <p><strong>[LOCATION]:</strong> <Strong>Brazil</Strong></p>
+                </span>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
+                    In an ecosystem defined by entropy and noise, I focus on the signal. I am a Cybersecurity Analyst and with a developer background dedicated to the art of defense. 
+                    While the breaker’s mindset is valuable, my loyalty lies with the builders and the protectors.
                 </p>
                 <p>
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum.
+                    My background spans the full spectrum of system reliability—from the rapid-response trenches of a SOC to the architectural logic of software development and support. 
+                    I don’t just patch vulnerabilities; I seek to understand the systemic flaws that allow them to exist.
+                </p>
+                <p>
+                    I am a proponent of the Cypherpunk ethos: privacy is a right, and code is the medium to secure it. 
+                    I believe in the power of open source, the necessity of decentralization, and the elegance of strong cryptography. 
+                    When I am not hardening systems or analyzing logs, you will likely find me deep in hacker literature, learning from the history of our digital underground to better secure its future.
+                </p>
+                <ul class="about-list">
+                    <li class="list-header"><b>Core Kernels:</b></li>
+
+                    <li>Defense -> Offense: I specialize in SOC analysis and system hardening. I find peace in the shield, not the sword.</li>
+
+                    <li>Open Source Advocate: Believer in transparency, decentralization, and the collaborative power of the community.</li>
+
+                    <li>Continuous Iteration: My knowledge base is always under construction.</li>
+                </ul>
+                <p>
+                    I view cybersecurity through the lens of privacy and individual sovereignty. 
+                    Whether I am writing code, providing high-level support, or auditing traffic, I apply the principles of the Cypherpunk movement to modern security challenges. 
+                    I am a student of the culture—reading the man pages, the manifestos, and the code that powers our world.
                 </p>
             </div>
         </div>
