@@ -6,7 +6,7 @@ permalink: /articles/
 
 <section>
     <h2><span class="cmd">></span> ./list_research.sh --type=articles</h2>
-    <p class="subtitle">// Buscando projetos e artigos técnicos...</p>
+    <p class="subtitle glitch">// Buscando projetos e artigos técnicos...</p>
     <br>
     <div class="writeups-list" id="content-list">
         {% for article in site.articles %}
