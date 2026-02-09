@@ -14,6 +14,7 @@ collections:
     permalink: /articles/:title/
 plugins:
   - jekyll-paginate-v2
+  - jekyll-minifier
 
 pagination:
   enabled: true
@@ -22,3 +23,13 @@ pagination:
   collection: ['writeups', 'articles']
   extension: 'html'
   index_limit: 0
+
+jekyll-minifier:
+  remove_comments: true             # Default: true
+  remove_input_attributes: true    # Default: false
+  compress_css: true                # Default: true
+  compress_javascript: true         # Default: true
+  compress_json: true               # Default: true
+  remove_intertag_spaces: true      # Default: false
+  remove_multi_spaces: true         # Default: true
+  compress_js_templates: true      # Default: false

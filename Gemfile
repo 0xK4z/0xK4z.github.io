@@ -10,6 +10,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.4.1"
 group :jekyll_plugins do
   gem "jekyll-paginate-v2"
+  gem "jekyll-minifier"
 end
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima", "~> 2.5.2"
