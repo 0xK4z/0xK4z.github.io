@@ -8,18 +8,17 @@ sass:
 collections:
   writeups:
     output: true
-    permalink: /writeups/:slug/
+    permalink: /writeups/:title/
   articles:
     output: true
-    permalink: /articles/:slug/
+    permalink: /articles/:title/
 plugins:
   - jekyll-paginate-v2
 
 pagination:
   enabled: true
-  per_page: 8
-  permalink: "/page/:num/"
-  title: " - Page :num"
+  debug: true
+  per_page: 4
   # Configuração para Writeups
   collection: ['writeups', 'articles']
   extension: 'html'
