@@ -17,7 +17,6 @@ plugins:
 
 pagination:
   enabled: true
-  debug: true
   per_page: 4
   # Configuração para Writeups
   collection: ['writeups', 'articles']
