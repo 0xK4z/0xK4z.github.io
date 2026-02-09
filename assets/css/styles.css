@@ -41,32 +41,6 @@ body {
   opacity: 0.2; /* Torna o efeito mais sutil para não distrair */
 }
 
-/* Animação de Glitch sutil */
-.glitch-effect {
-  animation: glitch-skew 30s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-skew {
-  /* O glitch ocorre apenas em 2% do tempo total (aprox. 0.6s a cada 30s) */
-  0%,
-  94%,
-  100% {
-    transform: skew(0deg);
-    filter: blur(0);
-  }
-  95% {
-    transform: skew(3deg);
-    filter: blur(1px) contrast(1.2);
-  }
-  96% {
-    transform: skew(-2deg);
-    opacity: 0.8;
-  }
-  97% {
-    transform: skew(0deg);
-  }
-}
-
 body::after {
   content: "";
   position: fixed;
@@ -113,7 +87,7 @@ body::after {
 }
 
 .image-caption {
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
   font-size: 0.8rem;
   color: yellow;
 }
@@ -144,7 +118,7 @@ body::after {
   list-style: none; /* Remove as bolinhas padrão */
   padding-left: 0; /* Remove o recuo padrão */
   margin: 20px 0;
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
   font-size: 1.2rem;
   line-height: 1.6;
   color: var(--text-color);
@@ -245,7 +219,7 @@ body::after {
 }
 
 .cv-filename {
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
   font-size: 0.9rem;
   font-weight: bold;
   color: var(--accent-color);
@@ -421,7 +395,7 @@ h2 {
 
 .achievement-stats p {
   margin-bottom: 8px;
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
 }
 
 .education-container {
@@ -548,7 +522,7 @@ h2 {
 }
 
 .writeup-entry .date {
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
   font-size: 0.8rem;
   color: var(--secondary-accent);
   display: block;
@@ -589,7 +563,7 @@ h2 {
   border: 1px solid var(--secondary-accent);
   padding: 2px 6px;
   text-transform: uppercase;
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
   background: rgba(69, 162, 158, 0.05); /* Um leve fundo para destaque */
   transition: all 0.3s ease;
 }
@@ -620,7 +594,7 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
 }
 
 .page-number {
@@ -689,7 +663,7 @@ footer a {
   padding: 15px;
   background: rgba(31, 40, 51, 0.3); /* Fundo semi-transparente */
   border-left: 4px solid var(--accent-color);
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
 }
 
 .status-item {
@@ -825,7 +799,7 @@ footer a {
   background: var(--bg-color);
   padding: 15px;
   border: 1px solid var(--terminal-bg);
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
   font-size: 0.85rem;
   line-height: 1.6;
   border-radius: 4px;
@@ -877,7 +851,7 @@ footer a {
   background: rgba(31, 40, 51, 0.2);
   border: 1px solid var(--secondary-accent);
   padding: 15px;
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
   max-width: 400px;
   margin: 20px 0;
 }
@@ -991,7 +965,7 @@ footer a {
 /* 404 page */
 .error-page {
   margin-top: 50px;
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-stack);
 }
 
 .kernel-panic {
