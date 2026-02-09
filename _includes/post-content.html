@@ -1,7 +1,7 @@
 <div class="writeups-list" id="content-list">
   {% for post in paginator.posts %}
   <div
-    class="writeup-entry"
+    class="writeup-entry {% if post.complexity %}complexity-{{ post.complexity | downcase }}{% endif %}"
     data-title="{{ post.title | lowercase }}"
     data-tags="{{ post.tags | join: ' ' | lowercase }}"
   >
@@ -10,6 +10,9 @@
       {{ post.title }}
     </a>
     <p class="summary">{{ post.summary | truncate: 120 }}</p>
+    {% if post.complexity %}
+    <span class="complexity-label">[{{ post.complexity | upcase }}]</span>
+    {% endif %}
     {% if post.tags %}
     <div class="post-tags">
       {% for tag in post.tags %}

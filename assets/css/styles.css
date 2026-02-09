@@ -475,17 +475,75 @@ h2 {
 }
 
 .writeup-entry {
-  padding: 15px;
-  background: transparent;
-  border-left: 2px solid var(--border-color);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  border-left: 2px solid var(--secondary-accent);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px 20px;
+  background: rgba(31, 40, 51, 0.3); /* Fundo um pouco mais visível */
+  border: 1px solid var(--secondary-accent); /* Borda total sutil */
+  border-left: 4px solid var(--accent-color); /* Borda lateral mais grossa */
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.writeup-entry:not([class*="complexity-"]):hover,
+.writeup-entry.complexity-:hover {
+  /* Caso a classe venha vazia */
+  border-left-color: var(--accent-color);
+  background: rgba(102, 252, 241, 0.05);
+  transform: translateX(5px);
+}
+
+/* LOW (Verde) */
+.writeup-entry.complexity-low {
+  border-color: var(--status-info) !important;
+}
+.writeup-entry.complexity-low:hover {
+  border-left-width: 8px;
+  box-shadow: -5px 0 20px rgba(0, 255, 65, 0.2); /* Glow Verde */
+  background: rgba(0, 255, 65, 0.05);
+}
+.complexity-low .complexity-label {
+  color: var(--status-info);
+  text-shadow: 0 0 5px var(--status-info);
+}
+
+/* MEDIUM (Amarelo) */
+.writeup-entry.complexity-medium {
+  border-color: var(--status-warn) !important;
+}
+.writeup-entry.complexity-medium:hover {
+  border-left-width: 8px;
+  box-shadow: -5px 0 20px rgba(255, 204, 0, 0.2); /* Glow Amarelo */
+  background: rgba(255, 204, 0, 0.05);
+}
+.complexity-medium .complexity-label {
+  color: var(--status-warn);
+  text-shadow: 0 0 5px var(--status-warn);
+}
+
+/* HIGH (Vermelho) */
+.writeup-entry.complexity-high {
+  border-color: var(--status-error) !important;
+}
+.writeup-entry.complexity-high:hover {
+  border-left-width: 8px;
+  box-shadow: -5px 0 20px rgba(255, 49, 49, 0.3); /* Glow Vermelho mais forte */
+  background: rgba(255, 49, 49, 0.05);
+}
+.complexity-high .complexity-label {
+  color: var(--status-error);
+  text-shadow: 0 0 8px var(--status-error);
+  font-weight: 900; /* Extra destaque para o crítico */
+}
+
+.writeup-entry:not([class*="complexity-"]) .complexity-label {
+  display: none;
 }
 
 .writeup-entry:hover {
   border-left-color: var(--accent-color);
-  background: rgba(102, 252, 241, 0.03);
+  background: rgba(102, 252, 241, 0.05);
   transform: translateX(5px);
 }
 
@@ -519,26 +577,27 @@ h2 {
 }
 
 .post-tags {
-    display: flex;
-    gap: 8px;
-    vertical-align: middle;
+  display: flex;
+  gap: 8px;
+  vertical-align: middle;
 }
 
 .tag-badge {
-    font-size: 0.7rem;
-    color: var(--secondary-accent);
-    border: 1px solid var(--secondary-accent);
-    padding: 2px 6px;
-    text-transform: uppercase;
-    font-family: 'Fira Code', monospace;
-    background: rgba(69, 162, 158, 0.05); /* Um leve fundo para destaque */
-    transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--secondary-accent);
+  border: 1px solid var(--secondary-accent);
+  padding: 2px 6px;
+  text-transform: uppercase;
+  font-family: "Fira Code", monospace;
+  background: rgba(69, 162, 158, 0.05); /* Um leve fundo para destaque */
+  transition: all 0.3s ease;
 }
 
 .tag-badge:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-    box-shadow: 0 0 5px var(--accent-color);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color);
 }
 
 /* post WriteUps */
@@ -556,24 +615,24 @@ h2 {
 
 /* Navigation pages */
 .pagination-nav {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    font-family: 'Fira Code', monospace;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: "Fira Code", monospace;
 }
 
 .page-number {
-    color: var(--secondary-accent);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+  color: var(--secondary-accent);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 /* O .tag-badge já tem o estilo que criamos, ele funcionará bem aqui */
 .pagination-nav .tag-badge {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Footer */
@@ -931,40 +990,40 @@ footer a {
 
 /* 404 page */
 .error-page {
-    margin-top: 50px;
-    font-family: 'Fira Code', monospace;
+  margin-top: 50px;
+  font-family: "Fira Code", monospace;
 }
 
 .kernel-panic {
-    background: var(--status-error);
-    color: #000; /* Texto preto sobre fundo vermelho para impacto */
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(255, 95, 86, 0.4);
+  background: var(--status-error);
+  color: #000; /* Texto preto sobre fundo vermelho para impacto */
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(255, 95, 86, 0.4);
 }
 
 .panic-header {
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
 }
 
 .panic-line {
-    font-size: 0.85rem;
-    margin: 2px 0;
+  font-size: 0.85rem;
+  margin: 2px 0;
 }
 
 .panic-trace {
-    font-size: 0.8rem;
-    padding-left: 20px;
-    opacity: 0.8;
+  font-size: 0.8rem;
+  padding-left: 20px;
+  opacity: 0.8;
 }
 
 .ssh-termination {
-    border-left: 2px solid var(--status-error);
-    padding-left: 20px;
+  border-left: 2px solid var(--status-error);
+  padding-left: 20px;
 }
 
 .not-found-link {
@@ -978,22 +1037,22 @@ footer a {
 }
 
 .action-options {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .action-options .not-found-link {
-    width: fit-content;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 1.1rem;
+  width: fit-content;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
 /* Reutilizando o hover das tags que já criamos */
 .action-options .not-found-link:hover {
-    background: rgba(102, 252, 241, 0.1);
+  background: rgba(102, 252, 241, 0.1);
 }
 
 .glitch {
