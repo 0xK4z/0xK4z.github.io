@@ -12,6 +12,7 @@
   --status-warn: #ffcc00; /* Alerta/Atenção */
   --status-info: #00ff00; /* Sucesso/Info */
   --status-error: #ff5f56; /* Crítico */
+  --status-insane: #d754ff;
   --status-idle: #1f2833;
 }
 
@@ -463,7 +464,8 @@ h2 {
 .writeup-entry:not([class*="complexity-"]):hover,
 .writeup-entry.complexity-:hover {
   /* Caso a classe venha vazia */
-  border-left-color: var(--accent-color);
+  border-color: var(--accent-color);
+  border-left-width: 8px;
   background: rgba(102, 252, 241, 0.05);
   transform: translateX(5px);
 }
@@ -500,6 +502,7 @@ h2 {
 .writeup-entry.complexity-high {
   border-color: var(--status-error) !important;
 }
+
 .writeup-entry.complexity-high:hover {
   border-left-width: 8px;
   box-shadow: -5px 0 20px rgba(255, 49, 49, 0.3); /* Glow Vermelho mais forte */
@@ -509,6 +512,24 @@ h2 {
   color: var(--status-error);
   text-shadow: 0 0 8px var(--status-error);
   font-weight: 900; /* Extra destaque para o crítico */
+}
+
+/* Insane (Roxo/Magenta) */
+.writeup-entry.complexity-insane {
+  border-color: var(--status-insane) !important;
+}
+
+.writeup-entry.complexity-insane:hover {
+  border-left-width: 8px;
+  border-left-color: #d754ff; /* Garante que a borda herde a cor correta */
+  box-shadow: -5px 0 20px rgba(215, 84, 255, 0.4); /* Glow Roxo/Magenta */
+  background: rgba(215, 84, 255, 0.08); /* Fundo sutil */
+}
+
+.complexity-insane .complexity-label {
+  color: #d754ff;
+  text-shadow: 0 0 10px rgba(215, 84, 255, 0.6);
+  font-weight: 900;
 }
 
 .writeup-entry:not([class*="complexity-"]) .complexity-label {
