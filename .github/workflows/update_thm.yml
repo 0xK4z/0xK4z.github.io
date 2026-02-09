@@ -25,3 +25,9 @@ jobs:
           git add _data/thm.yml
           git commit -m "Update THM stats: $(date -u)" || exit 0
           git push
+
+      - name: Trigger Deploy
+        # Substitua 'deploy.yml' pelo nome real do seu arquivo de workflow de deploy
+        run: gh workflow run jekyll.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
