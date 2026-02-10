@@ -19,6 +19,8 @@ plugins:
 pagination:
   enabled: true
   per_page: 4
+  title: ":title - Page :num"
+  permalink: "page/:num/"
   # Configuração para Writeups
   collection: ['writeups', 'articles']
   extension: 'html'
