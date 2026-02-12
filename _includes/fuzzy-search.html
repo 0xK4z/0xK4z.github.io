@@ -46,7 +46,7 @@
   function displayResults(results) {
     if (results.length === 0) {
       resultsContainer.innerHTML =
-        '<div class="result-item" style="color: var(--status-error);">[!] No matching records found.</div>';
+        '<div class="result-item">[!] No matching records found.</div>';
     } else {
       const limitedResults = results.slice(0, 5);
 

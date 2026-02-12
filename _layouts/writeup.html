@@ -10,7 +10,7 @@ layout: default
     >
     |
     <span class="subtitle">Categories:</span>
-    <div class="post-tags" style="display: inline-flex; margin-left: 5px">
+    <div class="post-tags">
       {% for tag in page.tags %}
       <a
         href="{{ '/tag/' | relative_url }}{{ tag | slugify }}/"
