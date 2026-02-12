@@ -16,7 +16,9 @@
     {% if post.tags %}
     <div class="post-tags">
       {% for tag in post.tags %}
-      <p class="summary tag-badge">{{ tag }}</p>
+        <a href="{{ '/tag/' | relative_url }}{{ tag | slugify }}/" class="tag-link">
+          <p class="summary tag-badge">{{ tag }}</p>
+        </a>
       {% endfor %}
     </div>
     {% endif %}
