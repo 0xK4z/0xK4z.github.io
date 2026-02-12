@@ -12,7 +12,9 @@ layout: default
     <span class="subtitle">Categories:</span>
     <div class="post-tags" style="display: inline-flex; margin-left: 5px">
       {% for tag in page.tags %}
-      <span class="tag-badge">{{ tag }}</span>
+      <a href="{{ '/tag/' | relative_url }}{{ tag | slugify }}/" class="tag-link">
+        <span class="tag-badge">{{ tag }}</span>
+      </a>
       {% endfor %}
     </div>
   </header>

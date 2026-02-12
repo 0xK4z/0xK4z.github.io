@@ -626,6 +626,12 @@ h2 {
   vertical-align: middle;
 }
 
+.tag-link {
+    text-decoration: none; /* Remove o sublinhado padrão de links */
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
 .tag-badge {
   font-size: 0.9rem;
   font-weight: bold;

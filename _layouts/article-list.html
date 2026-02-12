@@ -1,8 +1,11 @@
 ---
 layout: default
+pagination: 
+  enabled: true
+  collection: articles
 ---
 <section>
-    <h2><span class="cmd">></span> ./list_research.sh --type=articles</h2>
+    <h2><span class="cmd">></span> ./list_research.sh --filter={{ page.autopage.display_name | default: "ALL" }}</h2>
     <p class="subtitle glitch">// Buscando projetos e artigos técnicos...</p>
     <br>
     {% include post-content.html %}

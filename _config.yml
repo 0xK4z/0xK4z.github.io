@@ -26,6 +26,17 @@ pagination:
   extension: 'html'
   index_limit: 0
 
+autopages:
+  enabled: true
+  tags:
+    enabled: true
+    layouts: 
+      - autopage_tags.html # Vamos criar este arquivo agora
+    permalink: "/tag/:tag/"
+
+  collections:
+    enabled: false # Desative isso para evitar duplicidade
+
 jekyll-minifier:
   remove_comments: true             # Default: true
   remove_input_attributes: true    # Default: false

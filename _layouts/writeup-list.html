@@ -1,8 +1,13 @@
 ---
 layout: default
+pagination: 
+  enabled: true
+  collection: writeupsection 
+autopage:
+  collection: writeupsection
 ---
 <section>
-    <h2><span class="cmd">></span> ./list_writeups.sh --all</h2>
+    <h2><span class="cmd">></span> ./list_writeups.sh --filter={{ page.autopage.display_name | default: "ALL" }}</h2>
     <p class="subtitle glitch">// Mostrando registros de incidentes arquivados...</p>
     <br>
     {% include post-content.html %}
