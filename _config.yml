@@ -38,11 +38,11 @@ autopages:
     enabled: false # Desative isso para evitar duplicidade
 
 jekyll-minifier:
-  remove_comments: true             # Default: true
-  remove_input_attributes: true    # Default: false
-  compress_css: true                # Default: true
-  compress_javascript: true         # Default: true
-  compress_json: true               # Default: true
-  remove_intertag_spaces: true      # Default: false
-  remove_multi_spaces: true         # Default: true
-  compress_js_templates: true      # Default: false
+  remove_comments: true             
+  remove_input_attributes: true    
+  compress_css: true                
+  compress_javascript: true         
+  compress_json: true               
+  remove_intertag_spaces: true      
+  remove_multi_spaces: true
+  compress_js_templates: true
