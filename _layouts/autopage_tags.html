@@ -4,7 +4,7 @@ pagination:
   enabled: true
 ---
 <section>
-    <h2><span class="cmd">></span> ./list_all.sh --filter={{ page.autopage.display_name }}</h2>
+    <h2><span class="cmd">></span> ./list_all.sh --filter={{ page.autopage.display_name | default: "ALL" }}</h2>
     <p class="subtitle glitch">// Mostrando todos os registros com a tag: {{ page.autopage.display_name }}</p>
     <br>
     
