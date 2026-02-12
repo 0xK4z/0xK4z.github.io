@@ -1,14 +1,34 @@
 ---
 layout: default
-pagination: 
+pagination:
   enabled: true
 ---
-<section>
-    <h2><span class="cmd">></span> ./list_all.sh --filter={{ page.autopage.display_name | default: "ALL" }}</h2>
-    <p class="subtitle glitch">// Mostrando todos os registros com a tag: {{ page.autopage.display_name }}</p>
-    <br>
-    
-    {% include post-content.html %}
 
-    {% include pagination.html %}
+<section>
+  <h2>
+    <span class="cmd">></span> ./list_all.sh --filter=<span
+      id="current-tag"
+      class="tag-badge"
+      >{{ page.autopage.display_name | default: "ALL" }}</span
+    >
+  </h2>
+  <p class="subtitle glitch">
+    // Mostrando todos os registros com a tag: {{ page.autopage.display_name }}
+  </p>
+  <br />
+
+  {% include post-content.html %} {% include pagination.html %}
+
+  <div class="return-actions">
+    <a href="{{ '/writeups/' | relative_url }}" class="tag-link">
+      <span class="tag-badge" style="border-color: var(--status-critical)">
+        [ RETURN_TO_WRITEUPS ]
+      </span>
+    </a>
+    <a href="{{ '/articles/' | relative_url }}" class="tag-link">
+      <span class="tag-badge" style="border-color: var(--status-critical)">
+        [ RETURN_TO_ARTICLES ]
+      </span>
+    </a>
+  </div>
 </section>
