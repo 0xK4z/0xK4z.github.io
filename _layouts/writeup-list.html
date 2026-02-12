@@ -10,6 +10,8 @@ autopage:
     <h2><span class="cmd">></span> ./list_writeups.sh --filter={{ page.autopage.display_name | default: "ALL" }}</h2>
     <p class="subtitle glitch">// Mostrando registros de incidentes arquivados...</p>
     <br>
+    {% include fuzzy-search.html %}
+    
     {% include post-content.html %}
 
     {% include pagination.html %}

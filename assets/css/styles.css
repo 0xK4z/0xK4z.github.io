@@ -723,6 +723,138 @@ h2 {
   text-align: center;
 }
 
+/* Fuzzy Search */
+/* Container Principal */
+.search-container {
+  position: relative;
+  margin: 20px 0 40px 0;
+  max-width: 800px; /* Ou 100% dependendo do seu layout */
+}
+
+/* Wrapper do Input - Simulando uma linha de comando */
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 20, 0, 0.2); /* Fundo bem escuro/translúcido */
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito de Foco (Glow e Expansão) */
+.search-input-wrapper:focus-within {
+  border-color: var(--accent-color);
+  box-shadow:
+    0 0 15px rgba(0, 255, 65, 0.3),
+    inset 0 0 5px rgba(0, 255, 65, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Ícone de Prompt (>) */
+.search-input-wrapper .cmd {
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 1.2rem;
+  user-select: none;
+  text-shadow: 0 0 5px var(--accent-color);
+}
+
+/* O Campo de Texto em si */
+#search-input {
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  letter-spacing: 0.5px;
+}
+
+/* Placeholder Estilizado */
+#search-input::placeholder {
+  color: rgba(0, 255, 65, 0.3);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Pequena animação de pulso no cursor quando focado */
+#search-input:focus::placeholder {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+/* Janela Flutuante de Resultados */
+.search-results-overlay {
+  position: absolute;
+  top: 100%; /* Aparece logo abaixo do input */
+  left: 0;
+  right: 0;
+  background: #0d0d0d;
+  border: 1px solid var(--accent-color);
+  border-top: none;
+  max-height: 400px;
+  overflow-y: auto;
+  display: none; /* Escondido por padrão */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px); /* Efeito moderno de vidro fosco */
+}
+
+.result-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #222;
+  transition: background 0.2s;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item:hover {
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.result-item a {
+  text-decoration: none;
+  color: #e0e0e0;
+  display: block;
+}
+
+.result-item .res-category {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-right: 8px;
+  border: 1px solid #444;
+  padding: 1px 4px;
+}
+
+.result-item .res-title {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.result-item .res-snippet {
+  display: block;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Custom Scrollbar para o terminal */
+.search-results-overlay::-webkit-scrollbar {
+  width: 6px;
+}
+.search-results-overlay::-webkit-scrollbar-thumb {
+  background: #333;
+}
+.search-results-overlay::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
 
 /* Footer */
 footer {
