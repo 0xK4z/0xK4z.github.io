@@ -7,7 +7,7 @@ autopage:
   collection: writeupsection
 ---
 <section>
-    <h2><span class="cmd">></span> ./list_writeups.sh --filter={{ page.autopage.display_name | default: "ALL" }}</h2>
+    <h2><span class="cmd">></span> ./list_writeups.sh --filter="ALL"</h2>
     <p class="subtitle glitch">// Mostrando registros de incidentes arquivados...</p>
     <br>
     {% include fuzzy-search.html %}
