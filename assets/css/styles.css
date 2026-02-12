@@ -723,21 +723,6 @@ h2 {
   text-align: center;
 }
 
-@keyframes pulse-red {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 85, 85, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 85, 85, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 85, 85, 0);
-  }
-}
-
-.return-actions .tag-link:hover .tag-badge {
-  animation: pulse-red 1.5s infinite;
-}
 
 /* Footer */
 footer {
