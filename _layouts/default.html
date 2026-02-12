@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>0xK4z@Portfolio:~$ {{ page.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/styles.css' | relative_url }}"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -13,15 +16,12 @@
   <body>
     <canvas id="matrixCanvas"></canvas>
     <div class="terminal-window glitch-effect">
-      {% include navbar.html %} 
-      
-     <main class="page-content">
-        {{ content }}
-    </main>
+      {% include navbar.html %}
+
+      <main class="page-content">{{ content }}</main>
       <hr class="separator" />
 
-      {% include soc-dashboard.html %}
-      {% include footer.html %}
+      {% include soc-dashboard.html %} {% include footer.html %}
     </div>
     <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
   </body>

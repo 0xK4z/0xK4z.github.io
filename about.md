@@ -40,12 +40,13 @@ permalink: /about/
                     <li>Continuous Iteration: My knowledge base is always under construction.</li>
                 </ul>
                 <p>
-                    I view cybersecurity through the lens of privacy and individual sovereignty. 
-                    Whether I am writing code, providing high-level support, or auditing traffic, I apply the principles of the Cypherpunk movement to modern security challenges. 
+                    I view cybersecurity through the lens of privacy and individual sovereignty.
+                    Whether I am writing code, providing high-level support, or auditing traffic, I apply the principles of the Cypherpunk movement to modern security challenges.
                     I am a student of the culture—reading the man pages, the manifestos, and the code that powers our world.
                 </p>
             </div>
         </div>
+
 </section>
 
 <section class="cv-download-section">

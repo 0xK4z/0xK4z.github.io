@@ -1,18 +1,18 @@
 ---
 layout: default
-pagination: 
+pagination:
   enabled: true
-  collection: writeupsection 
+  collection: writeupsection
 autopage:
   collection: writeupsection
 ---
-<section>
-    <h2><span class="cmd">></span> ./list_writeups.sh --filter="ALL"</h2>
-    <p class="subtitle glitch">// Mostrando registros de incidentes arquivados...</p>
-    <br>
-    {% include fuzzy-search.html %}
-    
-    {% include post-content.html %}
 
-    {% include pagination.html %}
+<section>
+  <h2><span class="cmd">></span> ./list_writeups.sh --filter="ALL"</h2>
+  <p class="subtitle glitch">
+    // Mostrando registros de incidentes arquivados...
+  </p>
+  <br />
+  {% include fuzzy-search.html %} {% include post-content.html %} {% include
+  pagination.html %}
 </section>

@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const typeWriterElement = document.getElementById("typewriter-text");
   if (!typeWriterElement) return;
-  
+
   let index = 0;
-  
+
   function typeWriter() {
     const textToType = "Hello, I am 0xK4z, a Cyber Security Analyst.";
-    
+
     if (index < textToType.length) {
       typeWriterElement.innerHTML += textToType.charAt(index);
       index++;

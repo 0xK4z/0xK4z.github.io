@@ -74,14 +74,18 @@
     }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === "/" && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-        e.preventDefault();
-        searchInput.focus();
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "/" &&
+      document.activeElement.tagName !== "INPUT" &&
+      document.activeElement.tagName !== "TEXTAREA"
+    ) {
+      e.preventDefault();
+      searchInput.focus();
     }
     if (e.key === "Escape") {
-        resultsContainer.style.display = 'none';
-        searchInput.blur();
+      resultsContainer.style.display = "none";
+      searchInput.blur();
     }
-});
+  });
 </script>
