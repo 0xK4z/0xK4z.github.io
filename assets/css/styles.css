@@ -650,17 +650,111 @@ h2 {
   box-shadow: 0 0 5px var(--accent-color);
 }
 
-/* post WriteUps */
+/* Posts and Articles */
 .post-content {
   display: flex;
   flex-direction: column;
   min-height: 70vh;
   justify-content: flex-start;
+  max-width: 1100px;
   text-align: left;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(10, 10, 10, 0.9); /* Fundo preto levemente transparente */
+  border: 1px solid #222;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.entry {
-  flex: 1;
+/* Reset de Tipografia para Markdown */
+.markdown-body {
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-family: var(--font-stack); /* Ou uma fonte legível de sua escolha */
+}
+
+/* Títulos (H1, H2, H3) */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  color: var(--accent-color);
+  margin-top: 2em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+}
+
+/* Listas (O bug da sua imagem parece ser falta de padding) */
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+  margin-bottom: 1.5em;
+}
+
+.markdown-body li {
+  margin-bottom: 0.5em;
+}
+
+/* Ênfase e Notas */
+.markdown-body strong {
+  color: var(--accent-color);
+  filter: brightness(1.2);
+}
+
+/* Blocos de Código (essencial para tutoriais) */
+.markdown-body pre {
+  background: #000;
+  padding: 15px;
+  border-left: 3px solid var(--accent-color);
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+/* --- Tabelas Estilo Terminal --- */
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #333;
+}
+
+.markdown-body th {
+  background: rgba(0, 255, 65, 0.1); /* Fundo verde sutil no cabeçalho */
+  color: var(--accent-color);
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #333;
+  font-family: "Fira Code", monospace;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.markdown-body td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #222;
+  font-size: 0.9rem;
+}
+
+.markdown-body tr:hover {
+  background: rgba(255, 255, 255, 0.03); /* Efeito hover na linha */
+}
+
+/* --- Blockquotes (Atenção / Notas) --- */
+.markdown-body blockquote {
+  margin: 20px 0;
+  padding: 15px 20px;
+  background: rgba(255, 184, 108, 0.05); /* Fundo alaranjado bem leve */
+  border-left: 4px solid #ffb86c; /* Borda lateral de destaque */
+  color: #ffb86c;
+}
+
+.markdown-body blockquote p {
+  margin: 0;
+}
+
+.markdown-body blockquote strong {
+  color: #ffb86c;
+  text-shadow: 0 0 5px rgba(255, 184, 108, 0.4);
 }
 
 /* Navigation pages */
