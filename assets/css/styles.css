@@ -621,7 +621,8 @@ h2 {
 }
 
 .post-tags {
-  display: flex;
+  display: inline-flex;
+  margin-left: 5px;
   gap: 8px;
   vertical-align: middle;
 }
