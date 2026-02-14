@@ -57,7 +57,7 @@
                 <a href="${res.item.url}">
                     <span class="res-category">${res.item.collection}</span>
                     <span class="res-title">${res.item.title}</span>
-                    <span class="res-snippet">${res.item.content}...</span>
+                    <span class="res-snippet">${String(res.item.content).substring(0, 175)}...</span>
                 </a>
             </div>
         `,
