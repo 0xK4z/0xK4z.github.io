@@ -686,12 +686,18 @@ h2 {
 /* Listas (O bug da sua imagem parece ser falta de padding) */
 .markdown-body ul,
 .markdown-body ol {
+  list-style: none;
   padding-left: 2em;
   margin-bottom: 1.5em;
 }
 
 .markdown-body li {
   margin-bottom: 0.5em;
+}
+
+.markdown-body ul li::marker {
+  content: "» ";
+  color: var(--accent-color);
 }
 
 /* Ênfase e Notas */
