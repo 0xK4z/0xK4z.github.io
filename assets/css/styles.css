@@ -803,6 +803,46 @@ h2 {
   text-shadow: 0 0 5px rgba(255, 184, 108, 0.4);
 }
 
+/* Botão de Cópia */
+.copy-code-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-family: "Fira Code", monospace;
+  font-size: 10px;
+  padding: 3px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0; /* Invisível por padrão */
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+/* Mostra o botão ao passar o mouse no bloco de código */
+pre:hover .copy-code-button {
+  opacity: 1;
+}
+
+.copy-code-button:hover {
+  background: var(--accent-color);
+  color: #000;
+}
+
+/* Estado quando copiado */
+.copy-code-button.copied {
+  background: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+/* Ajuste no bloco de código para não sobrepor o texto */
+.markdown-body pre {
+  padding-top: 30px !important; /* Abre espaço para o botão no topo */
+}
+
 /* Navigation pages */
 .pagination-nav {
   margin-top: 40px;
