@@ -1,0 +1,23 @@
+<div class="tag-sidebar">
+  <div class="sidebar-header"><span class="cmd">#</span> ls -l /bin/tags</div>
+  <ul class="tag-list">
+    {% comment %} Agregamos tags de posts, writeups e articles manualmente {%
+    endcomment %} {% assign all_docs = site.writeups %} {% assign raw_tags =
+    all_docs | map: "tags" | join: "," | split: "," | uniq | sort %} {% for
+    tag_name in raw_tags %} {% if tag_name == "" %}{% continue %}{% endif %} {%
+    comment %} Contagem manual para coleções {% endcomment %} {% assign count =
+    0 %} {% for doc in all_docs %} {% if doc.tags contains tag_name %} {% assign
+    count = count | plus: 1 %} {% endif %} {% endfor %}
+
+    <li>
+      <a
+        href="{{ '/tag/' | relative_url }}{{ tag_name | slugify }}/"
+        class="tag-item"
+      >
+        <span class="tag-label">{{ tag_name }}</span>
+        <span class="tag-count">[{{ count }}]</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

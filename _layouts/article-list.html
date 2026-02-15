@@ -9,6 +9,14 @@ pagination:
   <h2><span class="cmd">></span> ./list_research.sh --filter="ALL"</h2>
   <p class="subtitle glitch">// Buscando projetos e artigos técnicos...</p>
   <br />
-  {% include fuzzy-search.html %} {% include post-content.html %} {% include
-  pagination.html %}
+  {% include fuzzy-search.html %}
+  <div class="main-content-layout">
+    <div class="posts-column">
+      {% include post-content.html %} {% include pagination.html %}
+    </div>
+
+    <aside class="sidebar-column">
+      {% include tag-sidebar-articles.html %}
+    </aside>
+  </div>
 </section>

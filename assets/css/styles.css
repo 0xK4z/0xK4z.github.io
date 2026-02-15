@@ -666,6 +666,69 @@ h2 {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
+/*Sidebar */
+.main-content-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.posts-column {
+  flex: 3;
+}
+
+.sidebar-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.tag-sidebar {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #222;
+  padding: 15px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+}
+
+.sidebar-header {
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tag-item {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #888;
+  font-size: 0.85rem;
+  padding: 4px 0;
+  transition: all 0.2s;
+}
+
+.tag-item:hover {
+  color: var(--accent-color);
+  transform: translateX(5px);
+}
+
+.tag-count {
+  color: #444; /* Cor mais discreta para o número */
+  font-size: 0.75rem;
+}
+
+.tag-item:hover .tag-count {
+  color: var(--accent-color);
+}
+
 /* Reset de Tipografia para Markdown */
 .markdown-body {
   color: #e0e0e0;
