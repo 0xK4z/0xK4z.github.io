@@ -684,6 +684,45 @@ h2 {
   padding-bottom: 5px;
 }
 
+.markdown-body a {
+  color: var(--status-info); /* Usa o seu verde principal */
+  text-decoration: none;
+  position: relative;
+  padding: 0 2px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+/* Efeito de Cursor/Underline que "corre" ao passar o mouse */
+.markdown-body a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+.markdown-body a:hover::after {
+  width: 100%;
+}
+
+/* Efeito de "Seleção de Terminal" no hover */
+.markdown-body a:hover {
+  background: rgba(0, 255, 65, 0.1); /* Um brilho verde de fundo */
+  text-shadow: 0 0 5px var(--status-info);
+}
+
+/* Para links externos (opcional: adiciona um ícone de console) */
+.markdown-body a[href^="http"]::before {
+  content: "🔗 ";
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
 /* Listas (O bug da sua imagem parece ser falta de padding) */
 .markdown-body ul,
 .markdown-body ol {
