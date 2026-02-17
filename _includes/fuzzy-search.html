@@ -18,6 +18,18 @@
   const searchInput = document.getElementById("search-input");
   const resultsContainer = document.getElementById("results-container");
 
+  const escapeHTML = (str) =>
+    str.replace(
+      /[&<>"']/g,
+      (m) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[m],
+    );
   fetch("{{ '/assets/json/search-data.json' | relative_url }}")
     .then((response) => response.json())
     .then((data) => {
@@ -33,6 +45,8 @@
     });
 
   searchInput.addEventListener("input", (e) => {
+    if (!resultsContainer) return;
+
     const query = e.target.value;
     if (query.length < 2) {
       resultsContainer.style.display = "none";
@@ -47,23 +61,29 @@
     if (results.length === 0) {
       resultsContainer.innerHTML =
         '<div class="result-item">[!] No matching records found.</div>';
-    } else {
-      const limitedResults = results.slice(0, 5);
-
-      resultsContainer.innerHTML = limitedResults
-        .map(
-          (res) => `
-            <div class="result-item">
-                <a href="${res.item.url}">
-                    <span class="res-tag">${res.item.collection}</span>
-                    <span class="res-title">${res.item.title}</span>
-                    <span class="res-snippet">${res.item.content.substring(0, 175)}...</span>
-                </a>
-            </div>
-        `,
-        )
-        .join("");
+      resultsContainer.style.display = "block";
+      return;
     }
+
+    const htmlContent = results
+      .slice(0, 5)
+      .map((res) => {
+        const title = escapeHTML(res.item.title);
+        const collection = escapeHTML(res.item.collection);
+        const snippet = escapeHTML(res.item.content.substring(0, 175));
+
+        return `
+      <div class="result-item">
+          <a href="${encodeURI(res.item.url)}">
+              <span class="res-tag">${collection}</span>
+              <span class="res-title">${title}</span>
+              <span class="res-snippet">${snippet}...</span>
+          </a>
+      </div>`;
+      })
+      .join("");
+
+    resultsContainer.innerHTML = htmlContent;
     resultsContainer.style.display = "block";
   }
 
