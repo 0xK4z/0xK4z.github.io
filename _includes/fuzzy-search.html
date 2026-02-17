@@ -30,6 +30,16 @@
           "'": "&#39;",
         })[m],
     );
+  function debounce(func, delay) {
+    let timer;
+    return function (...args) {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  }
+
   fetch("{{ '/assets/json/search-data.json' | relative_url }}")
     .then((response) => response.json())
     .then((data) => {
@@ -44,7 +54,7 @@
       });
     });
 
-  searchInput.addEventListener("input", (e) => {
+  function handleSearch(e) {
     if (!resultsContainer) return;
 
     const query = e.target.value;
@@ -55,7 +65,9 @@
 
     const results = fuse.search(query);
     displayResults(results);
-  });
+  }
+
+  searchInput.addEventListener("input", debounce(handleSearch, 350));
 
   function displayResults(results) {
     if (results.length === 0) {
