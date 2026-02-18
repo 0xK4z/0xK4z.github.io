@@ -400,7 +400,7 @@ h2 {
 .separator {
   border: 0;
   border-top: 1px dashed var(--secondary-accent);
-  margin: 40px 0;
+  margin: 20px 0;
   opacity: 0.5;
 }
 
