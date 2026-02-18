@@ -105,12 +105,6 @@ box-shadow {
   font-size: 0.85rem;
 }
 
-.cmd-prompt {
-  color: var(--cmd-color);
-  margin-right: 8px;
-  font-weight: bold;
-}
-
 .theme-btn {
   background: transparent;
   border: none;
@@ -389,7 +383,8 @@ h2 {
 
 .cmd {
   color: var(--cmd-color);
-  margin-right: 10px;
+  margin-right: 8px;
+  font-weight: bold;
 }
 
 .subtitle {
