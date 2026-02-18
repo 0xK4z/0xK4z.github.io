@@ -1,6 +1,9 @@
 // Função para o efeito Matrix no Background
 function startMatrixEffect() {
   const canvas = document.getElementById("matrixCanvas");
+
+  if (!canvas) return;
+
   const ctx = canvas.getContext("2d");
 
   // Define o tamanho do canvas para cobrir a janela
