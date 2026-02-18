@@ -14,77 +14,79 @@
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 <script>
-  let fuse;
-  const searchInput = document.getElementById("search-input");
-  const resultsContainer = document.getElementById("results-container");
+  (function () {
+    let fuse;
+    const searchInput = document.getElementById("search-input");
+    const resultsContainer = document.getElementById("results-container");
 
-  const escapeHTML = (str) =>
-    str.replace(
-      /[&<>"']/g,
-      (m) =>
-        ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;",
-        })[m],
-    );
-  function debounce(func, delay) {
-    let timer;
-    return function (...args) {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        func.apply(this, args);
-      }, delay);
-    };
-  }
-
-  fetch("{{ '/assets/json/search-data.json' | relative_url }}")
-    .then((response) => response.json())
-    .then((data) => {
-      fuse = new Fuse(data, {
-        keys: [
-          { name: "title", weight: 0.7 },
-          { name: "tags", weight: 0.5 },
-          { name: "content", weight: 0.2 },
-        ],
-        threshold: 0.3,
-        includeMatches: true,
-      });
-    });
-
-  function handleSearch(e) {
+    if (!searchInput) return;
     if (!resultsContainer) return;
 
-    const query = e.target.value;
-    if (query.length < 2) {
-      resultsContainer.style.display = "none";
-      return;
+    const escapeHTML = (str) =>
+      str.replace(
+        /[&<>"']/g,
+        (m) =>
+          ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+          })[m],
+      );
+    function debounce(func, delay) {
+      let timer;
+      return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          func.apply(this, args);
+        }, delay);
+      };
     }
 
-    const results = fuse.search(query);
-    displayResults(results);
-  }
+    fetch("{{ '/assets/json/search-data.json' | relative_url }}")
+      .then((response) => response.json())
+      .then((data) => {
+        fuse = new Fuse(data, {
+          keys: [
+            { name: "title", weight: 0.7 },
+            { name: "tags", weight: 0.5 },
+            { name: "content", weight: 0.2 },
+          ],
+          threshold: 0.3,
+          includeMatches: true,
+        });
+      });
 
-  searchInput.addEventListener("input", debounce(handleSearch, 350));
+    function handleSearch(e) {
+      const query = e.target.value;
+      if (query.length < 2) {
+        resultsContainer.style.display = "none";
+        return;
+      }
 
-  function displayResults(results) {
-    if (results.length === 0) {
-      resultsContainer.innerHTML =
-        '<div class="result-item">[!] No matching records found.</div>';
-      resultsContainer.style.display = "block";
-      return;
+      const results = fuse.search(query);
+      displayResults(results);
     }
 
-    const htmlContent = results
-      .slice(0, 5)
-      .map((res) => {
-        const title = escapeHTML(res.item.title);
-        const collection = escapeHTML(res.item.collection);
-        const snippet = escapeHTML(res.item.content.substring(0, 175));
+    searchInput.addEventListener("input", debounce(handleSearch, 350));
 
-        return `
+    function displayResults(results) {
+      if (results.length === 0) {
+        resultsContainer.innerHTML =
+          '<div class="result-item">[!] No matching records found.</div>';
+        resultsContainer.style.display = "block";
+        return;
+      }
+
+      const htmlContent = results
+        .slice(0, 5)
+        .map((res) => {
+          const title = escapeHTML(res.item.title);
+          const collection = escapeHTML(res.item.collection);
+          const snippet = escapeHTML(res.item.content.substring(0, 175));
+
+          return `
       <div class="result-item">
           <a href="${encodeURI(res.item.url)}">
               <span class="res-tag">${collection}</span>
@@ -92,32 +94,33 @@
               <span class="res-snippet">${snippet}...</span>
           </a>
       </div>`;
-      })
-      .join("");
+        })
+        .join("");
 
-    resultsContainer.innerHTML = htmlContent;
-    resultsContainer.style.display = "block";
-  }
+      resultsContainer.innerHTML = htmlContent;
+      resultsContainer.style.display = "block";
+    }
 
-  // Fecha ao clicar fora
-  document.addEventListener("click", (e) => {
-    if (!document.querySelector(".search-container").contains(e.target)) {
-      resultsContainer.style.display = "none";
-    }
-  });
+    // Fecha ao clicar fora
+    document.addEventListener("click", (e) => {
+      if (!document.querySelector(".search-container").contains(e.target)) {
+        resultsContainer.style.display = "none";
+      }
+    });
 
-  document.addEventListener("keydown", (e) => {
-    if (
-      e.key === "/" &&
-      document.activeElement.tagName !== "INPUT" &&
-      document.activeElement.tagName !== "TEXTAREA"
-    ) {
-      e.preventDefault();
-      searchInput.focus();
-    }
-    if (e.key === "Escape") {
-      resultsContainer.style.display = "none";
-      searchInput.blur();
-    }
-  });
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "/" &&
+        document.activeElement.tagName !== "INPUT" &&
+        document.activeElement.tagName !== "TEXTAREA"
+      ) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === "Escape") {
+        resultsContainer.style.display = "none";
+        searchInput.blur();
+      }
+    });
+  })();
 </script>
