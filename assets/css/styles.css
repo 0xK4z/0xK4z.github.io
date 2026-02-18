@@ -50,6 +50,25 @@ body {
   line-height: 1.6;
   padding: 20px;
 }
+
+body,
+background,
+background-color,
+border-color,
+box-shadow {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.markdown-body *,
+.tag-sidebar,
+.search-input-wrapper {
+  transition:
+    color 0.4s ease,
+    background 0.4s ease;
+}
 /* Matrix effects */
 
 #matrixCanvas {
