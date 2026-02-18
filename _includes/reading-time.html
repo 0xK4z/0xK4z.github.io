@@ -1,0 +1,27 @@
+<div class="reading-stats">
+  <span class="stat-item">
+    <span class="cmd">#</span> reading time: {% assign words = content |
+    number_of_words %} {% if words < 360 %} 1 min {% else %} {{ words |
+    divided_by: 200 }} mins {% endif %}
+  </span>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const progressBar = document.querySelector("#progress-bar");
+    if (!progressBar) return;
+
+    function updateProgressBar() {
+      const winScroll = document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = `${scrolled}%`;
+    }
+    window.onscroll = updateProgressBar;
+  })();
+</script>

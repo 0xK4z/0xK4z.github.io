@@ -652,6 +652,32 @@ h2 {
   position: relative;
   overflow: hidden; /* Necessário para o efeito de brilho */
 }
+/* Reading time and progress bar */
+.reading-stats {
+  padding-top: 8px;
+  font-family: var(--font-stack);
+  font-size: 0.85rem;
+  color: var(--secondary-accent);
+}
+
+/* Progress bar */
+#progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: transparent;
+  z-index: 9999;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-color);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.7);
+  transition: width 0.1s ease-out;
+}
 
 /* Efeito de brilho passando (Glint) */
 .complexity-insane .complexity-label::after {
