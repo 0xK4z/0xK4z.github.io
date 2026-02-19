@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "pre.highlight, .markdown-body pre",
   );
 
-  if(!codeBlocks) return;
+  if (!codeBlocks) return;
 
   codeBlocks.forEach((codeBlock) => {
     const copyButton = document.createElement("button");
