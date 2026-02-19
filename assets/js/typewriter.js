@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const textToType = "Hello, I am 0xK4z, a Cyber Security Analyst.";
 
     if (index < textToType.length) {
-      typeWriterElement.innerHTML += textToType.charAt(index);
+      typeWriterElement.innerText += textToType.charAt(index);
       index++;
       setTimeout(typeWriter, 150);
     } else if (index === textToType.length) {
       setTimeout(() => {
-        typeWriterElement.innerHTML = "";
+        typeWriterElement.innerText = "";
         index = 0;
         typeWriter();
       }, 3000);
