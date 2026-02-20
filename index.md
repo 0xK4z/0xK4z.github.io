@@ -9,7 +9,7 @@ permalink: /
         <p class="subtitle">SOC Analyst | CTF Player | Security Researcher</p>
         <br />
         <p>
-          Welcome to my terminal. Navigate through the commands above to access the files.
+          ACCESS GRANTED: Logs from a Cybersecurity enthusiast. Here you will find detailed technical reports, automations, and the documentation of my continuous journey through offensive and defensive security.
         </p>
 </header>
 
