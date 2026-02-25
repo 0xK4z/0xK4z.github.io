@@ -5,6 +5,8 @@ date: 2026-02-14 11:36:00 -0300
 complexity: "Medium"
 tags: [active-directory, windows-server, virtualbox, lab]
 ---
+* TOC
+{:toc}
 
 ## 1. Preparação e Downloads
 

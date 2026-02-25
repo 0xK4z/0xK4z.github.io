@@ -22,11 +22,12 @@ layout: default
     </div>
     {% include reading-time.html %}
   </header>
-
   <hr class="separator" />
+  <div class="post-main-container">
+    <div class="markdown-body">{{ content }}</div>
 
-  <div class="markdown-body">{{ content }}</div>
-
+    <aside class="post-sidebar">{% include table-of-contents.html %}</aside>
+  </div>
   <footer>
     <a href="{{ '/writeups/' | relative_url }}" class="writeup-link"
       ><- Return</a

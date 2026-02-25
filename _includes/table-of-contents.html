@@ -1,0 +1,80 @@
+<div id="toc-container">
+  <div id="contents-title">Contents</div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // O Kramdown gera a ToC com o ID 'markdown-toc'
+    const generatedToc = document.getElementById("markdown-toc");
+    const targetContainer = document.getElementById("toc-container");
+
+    if (generatedToc && targetContainer) {
+      // Remove a ToC do texto e coloca dentro do seu container da sidebar
+      targetContainer.appendChild(generatedToc);
+    }
+  });
+</script>
+
+<style>
+  #toc-container {
+    position: sticky; /* Ele "persegue" o scroll dentro da coluna */
+    top: 80px; /* Distância do topo da tela */
+    width: 100%; /* Ajustado para preencher a sua sidebar-column */
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(var(--terminal-rgb), 0.2);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    padding: 15px;
+    border-radius: 4px;
+    font-family: var(--font-stack);
+  }
+  /* Esconde a ToC original enquanto ela ainda está no corpo do post */
+  .markdown-body #markdown-toc {
+    display: none;
+  }
+
+  /* Mostra a ToC apenas quando ela estiver dentro do container da sidebar */
+  #toc-container #markdown-toc {
+    display: block;
+  }
+
+  /* Estilizando a lista que o Jekyll gerou */
+  #markdown-toc {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  #markdown-toc a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: block;
+    padding: 3px 0;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+  }
+
+  #markdown-toc a:hover {
+    color: var(--accent-color);
+    border-left: 2px solid var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.05);
+  }
+  /* Remove marcadores, setas e pontos da ToC */
+  #markdown-toc,
+  #markdown-toc li,
+  #markdown-toc li::marker {
+    list-style: none !important;
+    list-style-type: none !important;
+    content: none !important;
+  }
+
+  /* Garante que não haja pseudo-elementos injetando as setas */
+  #markdown-toc li::before {
+    content: none !important;
+  }
+
+  #markdown-toc {
+    padding-left: 0 !important;
+  }
+</style>

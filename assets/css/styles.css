@@ -784,7 +784,6 @@ h2 {
   flex-direction: column;
   min-height: 70vh;
   justify-content: flex-start;
-  max-width: 1100px;
   text-align: left;
   margin: 0 auto;
   padding: 40px;
@@ -796,12 +795,40 @@ h2 {
   box-shadow: 0 0 20px rgba(var(--black-rgb), 0.5);
 }
 
+.post-main-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px; /* Espaço entre o texto e a ToC */
+  align-items: flex-start; /* Alinha a ToC no topo do container */
+  margin-top: 20px;
+}
+
 /*Sidebar */
+.post-sidebar {
+  width: 250px; /* Largura fixa para a ToC */
+  position: sticky;
+  top: 40px; /* Distância do topo da tela ao rolar */
+  flex-shrink: 0; /* Impede que a sidebar esprema o conteúdo */
+}
 .main-content-layout {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   align-items: flex-start;
+}
+
+/* Ajuste para Mobile */
+@media (max-width: 1100px) {
+  .post-main-container {
+    flex-direction: column; /* No mobile, a ToC vai para baixo ou para cima */
+  }
+
+  .post-sidebar {
+    width: 100%;
+    position: static; /* Remove o sticky no mobile para não sobrepor */
+    order: -1; /* Opcional: faz a ToC aparecer ANTES do texto no mobile */
+    margin-bottom: 20px;
+  }
 }
 
 .posts-column {
@@ -862,6 +889,8 @@ h2 {
 
 /* Reset de Tipografia para Markdown */
 .markdown-body {
+  flex: 1;
+  min-width: 0; /* Essencial para as tabelas não quebrarem o layout */
   color: #e0e0e0;
   line-height: 1.6;
   font-family: var(--font-stack); /* Ou uma fonte legível de sua escolha */
