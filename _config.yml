@@ -5,6 +5,7 @@ markdown: kramdown
 theme: minima # Apenas para evitar erros, mas usaremos CSS própriob
 sass:
   quiet_deps: true
+  style: expanded
 collections:
   writeups:
     output: true
@@ -22,15 +23,15 @@ pagination:
   title: ":title - Page :num"
   permalink: "page/:num/"
   # Configuração para Writeups
-  collection: ['writeups', 'articles']
-  extension: 'html'
+  collection: ["writeups", "articles"]
+  extension: "html"
   index_limit: 0
 
 autopages:
   enabled: true
   tags:
     enabled: true
-    layouts: 
+    layouts:
       - autopage_tags.html # Vamos criar este arquivo agora
     permalink: "/tag/:tag/"
 
@@ -38,11 +39,11 @@ autopages:
     enabled: false # Desative isso para evitar duplicidade
 
 jekyll-minifier:
-  remove_comments: true             
-  remove_input_attributes: true    
-  compress_css: true                
-  compress_javascript: true         
-  compress_json: true               
-  remove_intertag_spaces: true      
+  remove_comments: true
+  remove_input_attributes: true
+  compress_css: true
+  compress_javascript: true
+  compress_json: true
+  remove_intertag_spaces: true
   remove_multi_spaces: true
   compress_js_templates: true
