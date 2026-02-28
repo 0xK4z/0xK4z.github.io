@@ -1,0 +1,70 @@
+/* Navegação */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  border-bottom: 1px dashed var(--secondary-accent);
+  padding-bottom: 10px;
+}
+
+.prompt {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar a.active {
+  color: var(--accent-color);
+  text-decoration: underline;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(var(--acent-rgb), 0.5);
+}
+
+.navbar a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Theme toggle */
+.theme-switch-wrapper {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(var(--black-rgb), 0.4);
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  font-family: var(--font-stack);
+  font-size: 0.85rem;
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.theme-btn:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 8px var(--accent-color);
+}
+
+.theme-btn:focus {
+  outline: none;
+}

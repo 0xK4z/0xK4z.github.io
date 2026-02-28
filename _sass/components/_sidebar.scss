@@ -1,0 +1,83 @@
+/*Sidebar */
+.post-sidebar {
+  width: 250px; /* Largura fixa para a ToC */
+  position: sticky;
+  top: 40px; /* Distância do topo da tela ao rolar */
+  flex-shrink: 0; /* Impede que a sidebar esprema o conteúdo */
+}
+.main-content-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Ajuste para Mobile */
+@media (max-width: 1100px) {
+  .post-main-container {
+    flex-direction: column; /* No mobile, a ToC vai para baixo ou para cima */
+  }
+
+  .post-sidebar {
+    width: 100%;
+    position: static; /* Remove o sticky no mobile para não sobrepor */
+    order: -1; /* Opcional: faz a ToC aparecer ANTES do texto no mobile */
+    margin-bottom: 20px;
+  }
+}
+
+.posts-column {
+  flex: 3;
+}
+
+.sidebar-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.tag-sidebar {
+  background: rgba(var(--black-rgb), 0.3);
+  border: 1px solid #222;
+  padding: 15px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+}
+
+.sidebar-header {
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tag-item {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #888;
+  font-size: 0.85rem;
+  padding: 4px 0;
+  transition: all 0.2s;
+}
+
+.tag-item:hover {
+  color: var(--accent-color);
+  transform: translateX(5px);
+}
+
+.tag-count {
+  color: #444; /* Cor mais discreta para o número */
+  font-size: 0.75rem;
+}
+
+.tag-item:hover .tag-count {
+  color: var(--accent-color);
+}

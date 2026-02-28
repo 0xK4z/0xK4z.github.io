@@ -1,0 +1,138 @@
+/* Seção Skills */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-card {
+  border: 1px solid var(--secondary-accent);
+  padding: 5px 10px;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  cursor: default;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.skill-card:hover {
+  background: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.achievements-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.achievement-card {
+  border: 1px solid rgba(var(--acent-rgb), 0.2);
+  background: rgba(var(--terminal-rgb), 0.2);
+  padding: 20px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.achievement-card:hover {
+  border-color: var(--accent-color);
+}
+
+.achievement-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(var(--acent-rgb), 0.1);
+  padding-bottom: 10px;
+}
+
+.achievement-title {
+  color: var(--accent-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.achievement-rank {
+  color: #ffcc00; /* Cor dourada para o Rank */
+  font-size: 0.8rem;
+  text-shadow: 0 0 5px rgba(var(--status-warn-rgb), 0.3);
+}
+
+.achievement-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Estilo para o Badge do THM */
+.thm-badge {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(var(--white-rgb), 0.1);
+  border-radius: 5px;
+}
+
+.thm-badge-iframe {
+  width: 300px; /* Largura padrão do badge */
+  height: 100px; /* Altura padrão do badge */
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  /* Mantém a responsividade em telas muito pequenas */
+  max-width: 100%;
+}
+
+.achievement-stats {
+  flex: 1;
+  min-width: 250px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.achievement-stats p {
+  margin-bottom: 8px;
+  font-family: var(--font-stack);
+}
+
+.education-container {
+  padding-left: 10px;
+  border-left: 1px dashed var(--secondary-accent);
+  margin-bottom: 40px;
+}
+
+.education-item {
+  margin-bottom: 25px;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.edu-title {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.edu-date {
+  color: var(--secondary-accent);
+  font-size: 0.8rem;
+}
+
+.edu-institution {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.edu-details {
+  list-style: none;
+  color: #888;
+  font-size: 0.85rem;
+  padding-left: 5px;
+}

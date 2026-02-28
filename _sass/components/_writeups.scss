@@ -1,0 +1,149 @@
+/* Seção Writeups */
+.writeups-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.writeup-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px 20px;
+  background: rgba(var(--terminal-rgb), 0.3); /* Fundo um pouco mais visível */
+  border: 1px solid var(--secondary-accent); /* Borda total sutil */
+  border-left: 4px solid var(--accent-color); /* Borda lateral mais grossa */
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.complexity-label {
+  align-self: flex-start;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.writeup-entry:not([class*="complexity-"]):hover,
+.writeup-entry.complexity-:hover {
+  /* Caso a classe venha vazia */
+  border-color: var(--accent-color);
+  border-left-width: 8px;
+  background: rgba(var(--acent-rgb), 0.05);
+  transform: translateX(5px);
+}
+
+/* LOW (Verde) */
+.writeup-entry.complexity-low {
+  border-color: var(--status-info) !important;
+}
+.writeup-entry.complexity-low:hover {
+  border-left-width: 8px;
+  box-shadow: -5px 0 20px rgba(var(--status-info-rgb), 0.2);
+  background: rgba(var(--status-info-rgb), 0.05);
+}
+.complexity-low .complexity-label {
+  color: var(--status-info);
+  background: rgba(var(--status-info-rgb), 0.1);
+  text-shadow: 0 0 5px var(--status-info);
+}
+
+/* MEDIUM (Amarelo) */
+.writeup-entry.complexity-medium {
+  border-color: var(--status-warn) !important;
+}
+.writeup-entry.complexity-medium:hover {
+  border-left-width: 8px;
+  box-shadow: -5px 0 20px rgba(var(--status-warn-rgb), 0.2);
+  background: rgba(var(--status-warn-rgb), 0.05);
+}
+.complexity-medium .complexity-label {
+  color: var(--status-warn);
+  background: rgba(var(--status-warn-rgb), 0.1);
+  text-shadow: 0 0 5px var(--status-warn);
+}
+
+/* HIGH (Vermelho) */
+.writeup-entry.complexity-high {
+  border-color: var(--status-error) !important;
+}
+.writeup-entry.complexity-high:hover {
+  border-left-width: 8px;
+  box-shadow: -5px 0 20px rgba(var(--status-error-rgb), 0.3);
+  background: rgba(var(--status-error-rgb), 0.05);
+}
+.complexity-high .complexity-label {
+  color: var(--status-error);
+  background: rgba(var(--status-error-rgb), 0.1);
+  text-shadow: 0 0 8px var(--status-error);
+  font-weight: 900;
+}
+
+/* Insane (Roxo/Magenta) */
+.writeup-entry.complexity-insane {
+  border-color: var(--status-insane) !important;
+}
+
+.writeup-entry.complexity-insane:hover {
+  border-left-width: 8px;
+  border-left-color: #d754ff; /* Garante que a borda herde a cor correta */
+  box-shadow: -5px 0 20px rgba(var(--status-insane-rgb), 0.4); /* Glow Roxo/Magenta */
+  background: rgba(var(--status-insane-rgb), 0.08); /* Fundo sutil */
+}
+
+.complexity-insane .complexity-label {
+  padding: 2px 10px;
+  border-radius: 4px;
+  background: rgba(var(--status-insane-rgb), 0.1); /* Fundo bem suave */
+  border: 1px solid rgba(var(--status-insane-rgb), 0.3);
+  color: var(--status-insane);
+  text-shadow: 0 0 12px rgba(var(--status-insane-rgb), 0.8);
+  font-weight: 900;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden; /* Necessário para o efeito de brilho */
+}
+
+/* Efeito de brilho passando (Glint) */
+.complexity-insane .complexity-label::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(var(--white-rgb), 0.4),
+    transparent
+  );
+  transform: rotate(30deg);
+  animation: insane-shimmer 3s infinite;
+}
+
+@keyframes insane-shimmer {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.writeup-entry:not([class*="complexity-"]) .complexity-label {
+  display: none;
+}
+
+.writeup-entry:hover {
+  border-left-color: var(--accent-color);
+  background: rgba(var(--acent-rgb), 0.05);
+  transform: translateX(5px);
+}

@@ -1,0 +1,726 @@
+---
+---
+
+@import "base/variables";
+@import "base/themes";
+@import "base/global";
+
+@import "components/about";
+@import "components/auto-pages";
+@import "components/badges";
+@import "components/navbar";
+@import "components/post-content";
+@import "components/sidebar";
+@import "components/skills";
+@import "components/table-of-contents";
+@import "components/writeups";
+
+/* Matrix effects */
+
+#matrixCanvas {
+  position: fixed; /* Fixa o canvas na viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Manda para o fundo, atrás de todo o conteúdo */
+  pointer-events: none; /* Impede que o canvas capture cliques */
+  opacity: 0.2; /* Torna o efeito mais sutil para não distrair */
+  background-color: var(--);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03; /* Muito sutil */
+  z-index: 10000;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+/* Container Principal */
+.terminal-window {
+  max-width: 90vw;
+  margin: 0 auto;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--secondary-accent);
+  box-shadow: 0 0 10px rgba(var(--acent-rgb), 0.1);
+}
+
+.page-content {
+  flex-grow: 1; /* Isso faz esse bloco "esticar" e empurrar o resto para baixo */
+}
+
+/* Tipografia e Títulos */
+h1 {
+  color: var(--accent-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: var(--text-color);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.cmd {
+  color: var(--cmd-color);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: var(--secondary-accent);
+  font-size: 0.9rem;
+}
+
+.separator {
+  border: 0;
+  border-top: 1px dashed var(--secondary-accent);
+  margin: 20px 0;
+  opacity: 0.5;
+}
+
+/* Autopages */
+#current-tag.tag-badge {
+  background: var(--accent-color, #00ff41);
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 15px var(--accent-color, #00ff41);
+  border: none;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.tag-link span[style*="border-color: var(--status-error)"] {
+  color: var(--status-error, #ff5555);
+  background: rgba(var(--status-error-rgb), 0.1);
+}
+
+.tag-link:hover span[style*="border-color: var(--status-error)"] {
+  background: var(--status-error, #ff5555);
+  color: #000;
+  box-shadow: 0 0 10px var(--status-error, #ff5555);
+}
+
+/* Container para centralizar os botões de retorno */
+.return-actions {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 20px; /* Espaço entre os botões */
+  margin-top: 40px; /* Afasta da lista de posts */
+  width: 100%;
+}
+
+/* Ajuste fino para os botões de retorno ficarem uniformes */
+.return-actions .tag-badge {
+  padding: 8px 16px; /* Um pouco mais encorpados que as tags comuns */
+  min-width: 180px; /* Garante que os botões tenham o mesmo tamanho */
+  text-align: center;
+}
+
+/* Fuzzy Search */
+/* Container Principal */
+.search-container {
+  position: relative;
+  margin: 20px 0 40px 0;
+  max-width: 800px; /* Ou 100% dependendo do seu layout */
+}
+
+/* Wrapper do Input - Simulando uma linha de comando */
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(var(--black-rgb), 0.2); /* Fundo bem escuro/translúcido */
+  border: 1px solid rgba(var(--status-info-rgb), 0.2);
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 0 0 10px rgba(var(--black-rgb), 0.5);
+}
+
+/* Efeito de Foco (Glow e Expansão) */
+.search-input-wrapper:focus-within {
+  border-color: var(--accent-color);
+  box-shadow:
+    0 0 15px rgba(var(--status-info-rgb), 0.3),
+    inset 0 0 5px rgba(var(--status-info-rgb), 0.1);
+  transform: translateY(-2px);
+}
+
+/* Ícone de Prompt (>) */
+.search-input-wrapper .cmd {
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 1.2rem;
+  user-select: none;
+  text-shadow: 0 0 5px var(--accent-color);
+}
+
+/* O Campo de Texto em si */
+#search-input {
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  letter-spacing: 0.5px;
+}
+
+/* Placeholder Estilizado */
+#search-input::placeholder {
+  color: rgba(var(--status-info-rgb), 0.3);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Pequena animação de pulso no cursor quando focado */
+#search-input:focus::placeholder {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.search-kbd {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 3px;
+  color: #666;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  font-family: sans-serif;
+  box-shadow: 0 2px 0 #000;
+  margin-left: 10px;
+  pointer-events: none; /* Não atrapalha o clique */
+}
+
+/* Janela Flutuante de Resultados */
+.search-results-overlay {
+  position: absolute;
+  top: 100%; /* Aparece logo abaixo do input */
+  left: 0;
+  right: 0;
+  background: #0d0d0d;
+  border: 1px solid var(--accent-color);
+  border-top: none;
+  max-height: 400px;
+  overflow-y: auto;
+  display: none; /* Escondido por padrão */
+  box-shadow: 0 10px 30px rgba(var(--black-rgb), 0.8);
+  backdrop-filter: blur(5px); /* Efeito moderno de vidro fosco */
+}
+
+.result-item {
+  color: var(--status-error);
+  padding: 12px 15px;
+  border-bottom: 1px solid #222;
+  transition: background 0.2s;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item:hover {
+  background: rgba(var(--status-info-rgb), 0.05);
+}
+
+.result-item a {
+  text-decoration: none;
+  color: #e0e0e0;
+  display: block;
+}
+
+.result-item .res-tag {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-right: 8px;
+  border: 1px solid #444;
+  padding: 1px 4px;
+}
+
+.result-item .res-title {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.result-item .res-snippet {
+  display: block;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Custom Scrollbar para o terminal */
+.search-results-overlay::-webkit-scrollbar {
+  width: 6px;
+}
+.search-results-overlay::-webkit-scrollbar-thumb {
+  background: #333;
+}
+.search-results-overlay::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+footer a {
+  color: var(--secondary-accent);
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+/* Cursor piscante para efeito de digitação */
+.typing-effect::after {
+  content: "_";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 20px;
+  }
+}
+
+/* Status Dashboard */
+
+.status-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 15px;
+  background: rgba(var(--terminal-rgb), 0.3); /* Fundo semi-transparente */
+  border-left: 4px solid var(--accent-color);
+  font-family: var(--font-stack);
+}
+
+.status-item {
+  background: rgba(var(--black-rgb), 0.2);
+  padding: 10px 15px;
+  border: 1px solid rgba(var(--acent-rgb), 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Alinha o status à direita */
+  transition: all 0.3s ease;
+}
+
+.status-item:hover {
+  border-color: var(--accent-color);
+  background: rgba(var(--acent-rgb), 0.05);
+}
+
+/* Efeito de Pulso no Dot */
+.dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+}
+
+.dot-online {
+  background-color: #00ff00;
+  box-shadow: 0 0 8px #00ff00;
+  animation: pulse-green 2s infinite;
+}
+
+.dot-busy {
+  background-color: #ffcc00;
+  box-shadow: 0 0 8px #ffcc00;
+  animation: pulse-yellow 1s infinite alternate;
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--status-info-rgb), 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(var(--status-info-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--status-info-rgb), 0);
+  }
+}
+
+@keyframes pulse-yellow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--status-warn-rgb), 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(var(--status-warn-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--status-warn-rgb), 0);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* --- Estilização da Scrollbar --- */
+
+/* Firefox (Suporta apenas largura e cores básicas) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-accent) var(--bg-color);
+}
+
+/* Chrome, Edge, Safari e Brave */
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra vertical */
+  height: 8px; /* Altura da barra horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 1px solid rgba(var(--acent-rgb), 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-accent);
+  border-radius: 0px; /* Barras quadradas combinam mais com terminal */
+  box-shadow: inset 0 0 5px rgba(var(--acent-rgb), 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Esconde os botões de seta para um visual mais clean */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Para navegadores modernos (Chrome, Edge, Safari, Opera) */
+::selection {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-color) !important;
+}
+
+/* Para Firefox */
+::-moz-selection {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-color) !important;
+}
+
+/* Garante que elementos específicos não herdem estilos errados */
+*::selection {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-color) !important;
+}
+
+.terminal-code {
+  display: block;
+  background: var(--bg-color);
+  padding: 15px;
+  border: 1px solid var(--terminal-bg);
+  font-family: var(--font-stack);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+.log-timestamp {
+  color: var(--accent-color); /* Ciano do seu tema */
+  margin-right: 10px;
+}
+
+.log-warn {
+  color: var(--status-warn); /* Amarelo alerta */
+  font-weight: bold;
+}
+
+.log-info {
+  color: var(--status-info); /* Verde sucesso */
+  font-weight: bold;
+}
+
+.log-line {
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.log-line:hover {
+  background: rgba(
+    var(--acent-rgb),
+    0.1
+  ); /* Efeito de seleção de linha do SIEM */
+  cursor: crosshair; /* Cursor de "mira", muito comum em ferramentas de análise */
+}
+
+.cursor-blink {
+  color: var(--accent-color);
+  font-weight: bold;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.system-health-widget {
+  background: rgba(var(--terminal-rgb), 0.2);
+  border: 1px solid var(--secondary-accent);
+  padding: 15px;
+  font-family: var(--font-stack);
+  max-width: 400px;
+  margin: 20px 0;
+}
+
+.health-item {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-bar {
+  display: flex;
+  flex: 1;
+  background: var(--status-idle);
+  padding: 2px 5px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  white-space: nowrap;
+  overflow: hidden;
+  transition: width 1s ease-in-out;
+}
+
+.bar-fill.critical {
+  color: var(--status-error);
+}
+.bar-fill.medium {
+  color: var(--status-warn);
+}
+.bar-value {
+  margin-left: auto;
+  font-size: 0.8rem;
+}
+
+.latency-value.low {
+  color: var(--status-info);
+  text-shadow: 0 0 5px var(--status-info);
+}
+
+/* Triage */
+.triage-section {
+  margin: 30px 0;
+}
+
+.triage-card {
+  display: flex;
+  gap: 20px;
+  background: rgba(var(--black-rgb), 0.3);
+  border: 1px solid var(--status-idle);
+  margin-bottom: 15px;
+  padding: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.triage-card:hover {
+  border-color: var(--accent-color);
+}
+
+.triage-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  border-right: 1px solid var(--status-idle);
+  padding-right: 15px;
+}
+
+.severity-box {
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* Cores dinâmicas por severidade */
+.triage-card.critical .severity-box {
+  background: var(--status-error);
+  color: #000;
+}
+.triage-card.medium .severity-box {
+  background: var(--status-warn);
+  color: #000;
+}
+.triage-card.low .severity-box {
+  background: var(--status-info);
+  color: #000;
+}
+
+.ticket-id {
+  font-size: 0.7rem;
+  color: var(--secondary-accent);
+  margin-top: 5px;
+}
+
+.task-title {
+  display: block;
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.task-desc {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* 404 page */
+.error-page {
+  margin-top: 50px;
+  font-family: var(--font-stack);
+}
+
+.kernel-panic {
+  background: var(--status-error);
+  color: #000; /* Texto preto sobre fundo vermelho para impacto */
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(var(--status-error-rgb), 0.4);
+}
+
+.panic-header {
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid rgba(var(--black-rgb), 0.2);
+  margin-bottom: 10px;
+}
+
+.panic-line {
+  font-size: 0.85rem;
+  margin: 2px 0;
+}
+
+.panic-trace {
+  font-size: 0.8rem;
+  padding-left: 20px;
+  opacity: 0.8;
+}
+
+.ssh-termination {
+  border-left: 2px solid var(--status-error);
+  padding-left: 20px;
+}
+
+.not-found-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  border: 1px solid var(--secondary-accent);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.action-options {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.action-options .not-found-link {
+  width: fit-content;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+/* Reutilizando o hover das tags que já criamos */
+.action-options .not-found-link:hover {
+  background: rgba(var(--acent-rgb), 0.1);
+}
+
+.glitch {
+  position: relative;
+}
+
+/* Criamos uma "sombra" que será o glitch */
+.glitch::before {
+  content: attr(data-text); /* Pega o texto do HTML */
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 0 var(--status-info); /* Cor de destaque */
+  clip-path: inset(45% 0 44% 0); /* Fatia fina do texto */
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(10% 0 85% 0);
+  }
+  20% {
+    clip-path: inset(80% 0 10% 0);
+  }
+  /* ... outros cortes rápidos ... */
+  100% {
+    clip-path: inset(40% 0 43% 0);
+  }
+}

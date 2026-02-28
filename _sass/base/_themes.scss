@@ -1,0 +1,22 @@
+[data-theme="cyberpunk"] {
+  /* --- FUNDOS MAIS SUAVES (Deep Purple Slate) --- */
+  --bg-color: #0f0913; /* Um roxo muito escuro, quase preto, mas menos agressivo */
+  --terminal-bg: #1a1421; /* Menos saturado */
+  --text-color: #d1c7d7; /* Cinza levemente rosado (menos branco, mais descanso) */
+
+  /* --- ACENTOS (Magenta/Violeta mudo em vez de Pink Neon) --- */
+  --accent-color: #bb86fc; /* Violeta Pastel (estilo Material Design Dark) */
+  --secondary-accent: #7c4dff; /* Roxo vibrante mas profundo */
+  --cmd-color: #03dac6; /* Teal suave para comandos */
+
+  /* --- CANAIS RGB PARA TRANSPARÊNCIAS --- */
+  --terminal-rgb: 26, 20, 33;
+  --accent-rgb: 187, 134, 252; /* O novo roxo pastel */
+  --secondary-rgb: 124, 77, 255;
+  --cmd-rgb: 3, 218, 198;
+
+  /* --- STATUS (Menos saturados) --- */
+  --status-success-rgb: 3, 218, 198;
+  --status-error-rgb: 207, 102, 121; /* Vermelho "desbotado" para conforto */
+  --status-warn-rgb: 255, 184, 108;
+}

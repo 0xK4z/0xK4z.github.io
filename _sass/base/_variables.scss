@@ -1,0 +1,38 @@
+/* Variáveis de Cores - Mude aqui para personalizar */
+:root {
+  --bg-color: #0b0c10;
+  --terminal-bg: #1f2833;
+  --text-color: #c5c6c7;
+  --accent-color: #66fcf1; /* Ciano Neon */
+  --secondary-accent: #45a29e;
+  --cmd-color: #e94560; /* Vermelho para comandos */
+  --font-stack: "Fira Code", "Courier New", monospace;
+
+  /* Variáveis de Status para SOC */
+  --status-warn: #ffcc00; /* Alerta/Atenção */
+  --status-info: #00ff00; /* Sucesso/Info */
+  --status-error: #ff5f56; /* Crítico */
+  --status-insane: #d754ff;
+  --status-idle: #1f2833;
+
+  /* RGB */
+  /* Estrutura e Neutros */
+  --terminal-rgb: 31, 40, 51; /* Original: rgba(var(--terminal-rgb), ...) */
+  --black-rgb: 0, 0, 0; /* Original: rgba(var(--black-rgb), ...) */
+  --dark-rgb: 10, 10, 10; /* Original: rgba(var(--dark-rgb), ...) */
+  --white-rgb: 255, 255, 255; /* Original: rgba(var(--white-rgb), ...) */
+
+  /* Destaque (Accent) - Onde a mágica acontece */
+  --accent-rgb: 102, 252, 241; /* Ciano Neon */
+  --secondary-rgb: 69, 162, 158; /* Original: rgba(var(--secondary-rgb), ...) */
+
+  /* Status (Refatorados para semelhança) */
+  --status-warn-rgb:
+    255, 184, 108; /* Original: rgba(var(--status-warn-rgb), ...) e rgba(var(--status-warn-rgb), ...) */
+  --status-error-rgb:
+    255, 49, 49; /* Original: 255, 49, 49 / 255, 85, 85 / 255, 95, 86 */
+  --status-info-rgb:
+    0, 255, 65; /* Original: 0, 255, 65 / 0, 255, 0 / 0, 20, 0 */
+  --status-insane-rgb:
+    215, 84, 255; /* Original: rgba(var(--status-insane-rgb), ...) */
+}
