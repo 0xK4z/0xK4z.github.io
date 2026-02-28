@@ -7,7 +7,6 @@
 
 @import "components/about";
 @import "components/auto-pages";
-@import "components/badges";
 @import "components/navbar";
 @import "components/post-content";
 @import "components/sidebar";
@@ -88,44 +87,6 @@ h2 {
   border-top: 1px dashed var(--secondary-accent);
   margin: 20px 0;
   opacity: 0.5;
-}
-
-/* Autopages */
-#current-tag.tag-badge {
-  background: var(--accent-color, #00ff41);
-  color: #000;
-  font-weight: bold;
-  box-shadow: 0 0 15px var(--accent-color, #00ff41);
-  border: none;
-  margin-left: 10px;
-  vertical-align: middle;
-}
-
-.tag-link span[style*="border-color: var(--status-error)"] {
-  color: var(--status-error, #ff5555);
-  background: rgba(var(--status-error-rgb), 0.1);
-}
-
-.tag-link:hover span[style*="border-color: var(--status-error)"] {
-  background: var(--status-error, #ff5555);
-  color: #000;
-  box-shadow: 0 0 10px var(--status-error, #ff5555);
-}
-
-/* Container para centralizar os botões de retorno */
-.return-actions {
-  display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  gap: 20px; /* Espaço entre os botões */
-  margin-top: 40px; /* Afasta da lista de posts */
-  width: 100%;
-}
-
-/* Ajuste fino para os botões de retorno ficarem uniformes */
-.return-actions .tag-badge {
-  padding: 8px 16px; /* Um pouco mais encorpados que as tags comuns */
-  min-width: 180px; /* Garante que os botões tenham o mesmo tamanho */
-  text-align: center;
 }
 
 /* Fuzzy Search */
