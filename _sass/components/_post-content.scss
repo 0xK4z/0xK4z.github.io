@@ -6,7 +6,7 @@
   justify-content: flex-start;
   text-align: left;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px;
   background: rgba(
     var(--dark-rgb),
     0.9
@@ -17,23 +17,19 @@
 
 .post-main-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px; /* Espaço entre o texto e a ToC */
-  align-items: stretch; /* Alinha a ToC no topo do container */
+  align-items: flex-start;
   margin-top: 20px;
 }
 
-/* Quando a tela for grande, volta para o lado a lado */
-@media screen and (min-width: 1024px) {
-  .post-main-container {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-}
-
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .post-content {
-    padding: 40px; /* Volta ao normal em telas maiores */
+    padding: 20px;
+  }
+  .post-main-container {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
