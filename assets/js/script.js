@@ -51,7 +51,7 @@ function startMatrixEffect() {
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
       // Reseta a coluna quando atinge o final da tela ou aleatoriamente
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      if (drops[i] * fontSize > canvas.height || Math.random() > 0.975) {
         drops[i] = 0;
       }
 
