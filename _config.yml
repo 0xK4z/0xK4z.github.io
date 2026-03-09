@@ -24,6 +24,8 @@ pagination:
   permalink: "page/:num/"
   # Configuração para Writeups
   collection: ["writeups", "articles"]
+  sort_field: "date"
+  sort_reverse: true
   extension: "html"
   index_limit: 0
 
