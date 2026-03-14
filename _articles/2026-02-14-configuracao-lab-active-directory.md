@@ -2,6 +2,7 @@
 layout: article
 title: "Configuração de um laboratório do Active Directory"
 date: 2026-02-14 11:36:00 -0300
+sumarry: "Configuração de um home-lab active directory para treinamento."
 complexity: "Medium"
 tags: [active-directory, windows-server, virtualbox, lab]
 ---

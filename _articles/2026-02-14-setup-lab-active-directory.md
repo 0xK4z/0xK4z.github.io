@@ -3,6 +3,7 @@ layout: article
 title: "Setting up an Active Directory lab"
 date: 2026-02-14 11:36:00 -0300
 complexity: "Medium"
+summary: "A home-lab active-directory setup for training."
 tags: [active-directory, windows-server, virtualbox, lab]
 ---
 * TOC
