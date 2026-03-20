@@ -1,13 +1,16 @@
 /* Seção Skills */
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 15px;
+  width: fit-content;
+  margin-bottom: 20px;
 }
 
 .skill-card {
+  padding: 5px 35px;
+  align-self: center;
   border: 1px solid var(--secondary-accent);
-  padding: 5px 10px;
   color: var(--accent-color);
   font-size: 0.9rem;
   cursor: default;
