@@ -10,6 +10,7 @@
 .skill-card {
   padding: 5px 35px;
   align-self: center;
+  text-align: center;
   border: 1px solid var(--secondary-accent);
   color: var(--accent-color);
   font-size: 0.9rem;
@@ -23,6 +24,21 @@
   background: var(--accent-color);
   color: var(--bg-color);
 }
+
+/* Tablet: Quando a tela for menor que 768px, passa para 2 colunas */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+
+/* Mobile: Quando a tela for menor que 480px, vira uma lista vertical (1 coluna) */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: max-content;
+  }
+}
+
 
 .achievements-container {
   margin-top: 20px;
