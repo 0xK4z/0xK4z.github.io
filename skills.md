@@ -11,6 +11,9 @@ permalink: /skills/
     <div class="skill-card">[ Linux Admin ]</div>
     <div class="skill-card">[ Network Security ]</div>
     <div class="skill-card">[ Web Exploitation ]</div>
+    <div class="skill-card">[ Risk Assessment ]</div>
+    <div class="skill-card">[ Incident Response ]</div>
+    <div class="skill-card">[ Cyber Threat Intel ]</div>
 </div>
 </section>
 
@@ -28,7 +31,6 @@ permalink: /skills/
 <h2><span class="cmd ">></span>./Programming-Languages/</h2>
 <div class="skills-grid">
   <div class="skill-card">[ Javascript ]</div>
-  <div class="skill-card">[ Typescript ]</div>
   <div class="skill-card">[ Python ]</div>
   <div class="skill-card">[ Shell Script ]</div>
   <div class="skill-card">[ Assembly ]</div>
@@ -37,7 +39,7 @@ permalink: /skills/
 
 <section>
     <h2><span class="cmd ">></span>./Achievements</h2>
-    <p class="subtitle glitch">// Operações em plataformas de treinamento</p>
+    <p class="subtitle glitch">// Operations on training platforms</p>
 
 <div class="achievements-container">
         <div class="achievement-card">
@@ -66,7 +68,7 @@ permalink: /skills/
 <section>
 <h2><span class="cmd ">></span>./Certifications/</h2>
 <ul style="list-style: none; padding-left: 10px; color: #aaa">
-    <li style="color: #0f5">-rw-r--r-- 1 root root [ Google Cybersecurity Certificate ]</li>
+    <li style="color: #0f5">-rw-r--r-- 1 root root [ Certificado Profissional de Suporte em TI ]</li>
 </ul>
 </section>
 
@@ -75,7 +77,7 @@ permalink: /skills/
     <div class="education-container">
         <div class="education-item">
             <div class="edu-header">
-                <span class="edu-title">[ BACHELOR_COMPUTER_SCIENCE ]</span>
+                <span class="edu-title">[ Associate in Computer Science (Systems Analysis and Development) ]</span>
                 <span class="edu-date">2017 - 2020</span>
             </div>
             <div class="edu-body">
