@@ -1,6 +1,10 @@
+let matrixInterval; // Variável global para controlar o loop
+
 // Função para o efeito Matrix no Background
 function startMatrixEffect() {
   const canvas = document.getElementById("matrixCanvas");
+  const btn = document.getElementById("matrix-toggle");
+  const btnStatus = btn.querySelector(".btn-status");
 
   if (!canvas) return;
 
@@ -60,8 +64,44 @@ function startMatrixEffect() {
     }
   }
 
-  // Atualiza o canvas a cada 33 milissegundos (aproximadamente 30 FPS)
-  setInterval(draw, 33);
+  // Função para ligar o efeito
+  function enableEffect() {
+    matrixInterval = setInterval(draw, 33);
+    isMatrixActive = true;
+    btn.classList.add("active");
+    btnStatus.innerText = "[ON]";
+    localStorage.setItem("matrix-effect", "on");
+  }
+
+  // Função para desligar o efeito
+  function disableEffect() {
+    clearInterval(matrixInterval);
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o rastro residual
+    isMatrixActive = false;
+    btn.classList.remove("active");
+    btnStatus.innerText = "[OFF]";
+    localStorage.setItem("matrix-effect", "off");
+  }
+
+  // Listener do Botão
+  btn.addEventListener("click", () => {
+    const currentState = localStorage.getItem("matrix-effect");
+    if (currentState === "on" || currentState === null) {
+      disableEffect();
+    } else {
+      enableEffect();
+    }
+  });
+
+  // Início padrão
+  const savedState = localStorage.getItem("matrix-effect");
+
+  // Se for a primeira vez (null) ou estiver 'on', liga.
+  if (savedState === "on" || savedState === null) {
+    enableEffect();
+  } else {
+    disableEffect();
+  }
 
   // Ajusta o tamanho do canvas se a janela for redimensionada
   window.addEventListener("resize", () => {
