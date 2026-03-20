@@ -1,9 +1,22 @@
 <nav class="navbar">
-  <span class="prompt"
-    >root@0xK4z:~{% if page.title == 'home' %}{% else %}/{{ page.title }}{%
-    endif %}$</span
-  >
-  {% include theme-toggle.html %}
+  <div class="nav-left">
+    <span class="prompt">
+      root@0xK4z:~{% if page.title != 'home' %}/{{ page.title }}{% endif %}$
+    </span>
+
+    <div class="nav-controls">
+      <button
+        id="matrix-toggle"
+        class="nav-control-btn active"
+        title="Ativar/Desativar Efeito Matrix"
+      >
+        <span class="btn-label">Matrix Effect</span>
+        <span class="btn-status">[ON]</span>
+      </button>
+
+      {% include theme-toggle.html %}
+  </div>
+
   <ul>
     <li>
       <a
