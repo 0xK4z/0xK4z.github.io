@@ -160,6 +160,6 @@ Use a PowerShell script to automatically create 100 users for testing.
 
 Open the Command Prompt (CMD) on the client machine:
 
-    - Use the command ping google.com to test NAT (internet access).
-    - Use the command nslookup mydomain.com to test DNS.
-    - Type whoami to confirm correct login to the domain.
+* Use the command ping google.com to test NAT (internet access).
+* Use the command nslookup mydomain.com to test DNS.
+* Type whoami to confirm correct login to the domain.
