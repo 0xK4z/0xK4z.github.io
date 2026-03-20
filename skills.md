@@ -68,7 +68,7 @@ permalink: /skills/
 <section>
 <h2><span class="cmd ">></span>./Certifications/</h2>
 <ul style="list-style: none; padding-left: 10px; color: #aaa">
-    <li style="color: #0f5">-rw-r--r-- 1 root root [ Certificado Profissional de Suporte em TI ]</li>
+    <li style="color: #0f5">-rw-r--r-- 1 root root [ Google IT Support Professional Certificate ]</li>
 </ul>
 </section>
 
