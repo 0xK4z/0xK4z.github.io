@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let index = 0;
 
   function typeWriter() {
-    const textToType = "Hello, I am 0xK4z, a Cyber Security Analyst.";
+    const textToType = "Hello, I am 0xK4z, a SOC Analyst.";
 
     if (index < textToType.length) {
       typeWriterElement.innerText += textToType.charAt(index);
